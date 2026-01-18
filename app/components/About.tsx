@@ -1,17 +1,43 @@
+"use client"
+
+import React, {useState, useEffect} from "react"
+
 export default function About() {
+
+    interface TypewriterProps {
+        text: string;
+        delay: number;
+    }
+
+    const Typewritter = ({ text, delay }: TypewriterProps) => {
+        const [currentText, setCurrentText] = useState('')
+        const [currentIndex, setCurrentIndex] = useState(0)
+
+        useEffect(() => {
+            if (currentIndex < text.length) {
+                const timeout = setTimeout(() => {
+                    setCurrentText((prevText) => prevText + text[currentIndex])
+                    setCurrentIndex((prevIndex) => prevIndex + 1)
+                }, delay)
+                return () => clearTimeout(timeout)
+            }
+        }, [currentIndex, text, delay])
+
+        return <h3 className="flex justify-center">{currentText}</h3>
+    }
 
     return(
         <>
         <section>
-            <div id="Intro">
+            <div id="Intro" className="block">
                 <div>
-                    <h3>Salut je suis Vinh-Lâm LÊ mais tu peux m'appeler Lam !</h3>
+                    <Typewritter text="Salut ! Moi c'est Vinh-Lâm LÊ mais appelle moi Lam !" delay={50} />
                 </div>
-                <div>
-                    <h1>Développeur full stack</h1>
+                <div className="my-20">
+                    <h1 id="titleFadeIn" className="flex justify-center">Développeur full stack</h1>
                 </div>
             </div>
-            <div id="About">
+            <div id="About" className="mt-180">
                 <div>
                     <h2>A propos</h2>
                 </div>
