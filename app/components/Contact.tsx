@@ -1,9 +1,9 @@
-export default function Projects() {
+export default function Contact() {
     return(
         <>
             <section>
                 <div>
-                    <h1>Fonctionnalités à venir - Projects</h1>
+                    <h1>Fonctionnalités à venir - Contact</h1>
                 </div>
             </section>
         </>
