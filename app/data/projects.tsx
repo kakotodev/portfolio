@@ -1,5 +1,4 @@
 export interface Project {
-    imgURL: any;
     id: number;
     title: string;
     description: string;
@@ -15,7 +14,7 @@ export const listProjects: Project[] = [
         description: "Marko est une plateforme de vente de textiles de luxe.",
         technologies: ["Vue3JS", "FastAPI", "Docker", "TailwindCSS", "PostegreSQL", "Git"],
         link: "https://github.com/kakotodev/E-Commerce-MARKO",
-        urlImg: "Toujours pas"
+        urlImg: ""
     },
     {
         id: 2,
@@ -23,7 +22,7 @@ export const listProjects: Project[] = [
         description: "Pas de description pour le moment",
         technologies: ["Pas de technologies pour le moment"],
         link: "Pas de link",
-        urlImg: "Toujours pas"
+        urlImg: ""
     },
     {
         id: 3,
@@ -31,6 +30,6 @@ export const listProjects: Project[] = [
         description: "Pas de description pour le moment",
         technologies: ["Pas de technologies pour le moment"],
         link: "Pas de link",
-        urlImg: "Toujours pas"
+        urlImg: ""
     }
 ];

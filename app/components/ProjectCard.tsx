@@ -1,5 +1,6 @@
 import { Project } from '../data/projects';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function ProjectCard({ listProjects }: { listProjects: Project}) {
     return(
@@ -8,7 +9,8 @@ export default function ProjectCard({ listProjects }: { listProjects: Project}) 
                 <h3>{listProjects.title}</h3>
                 <p className='text-[20px] !importante italic'>{listProjects.description}</p>
                 <p>{listProjects.technologies}</p>
-                <Image src={listProjects.imgURL} alt="image"/>
+                <Image src={listProjects.urlImg} alt="image"/>
+                <Link href={listProjects.link}>Clique ici pour acceder au projet</Link>
             </div>
         </>
     )
