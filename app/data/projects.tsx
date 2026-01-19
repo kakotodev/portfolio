@@ -1,4 +1,5 @@
 export interface Project {
+    imgURL: any;
     id: number;
     title: string;
     description: string;
