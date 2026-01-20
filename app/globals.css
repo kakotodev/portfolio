@@ -49,6 +49,17 @@ h3 {
   font-size: 40px;
 }
 
+input {
+  border: solid 2px var(--foreground);
+}
+
+.form-style {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
