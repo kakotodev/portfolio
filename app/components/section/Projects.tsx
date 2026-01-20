@@ -12,8 +12,9 @@ export default function Projects() {
                 </div>
                 <div className="flex justify-center">
                         {listProjects.map((project) => (
+                            project.urlImg ? (
                             <ProjectCard  key={project.id} listProjects={project} />
-                        ))}
+                        ) : null))}
                 </div>
             </section>
         </>

@@ -17,11 +17,13 @@ export default function SkillCard() {
             {Object.entries(skillsPerCategory). map(([nameCategory, listSkills]) =>(
                 <div key={nameCategory}>
                     <h2>{nameCategory}</h2>
-                    <div>
+                    <div className="flex justify-center">
                         {listSkills.map((skill) => (
-                            <div key={skill.id}>
-                                <Image src={skill.urlImg} alt="skill" width={40} height={40}/>
-                            </div>
+                            skill.urlImg ? (
+                                <div key={skill.id} className="flex justify-center">
+                                    <Image src={skill.urlImg} alt="skill" width={40} height={40}/>
+                                </div>
+                            ) : null
                         ))}
                     </div>
                 </div>
