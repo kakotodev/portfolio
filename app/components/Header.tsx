@@ -6,7 +6,6 @@ export default function Header() {
             <nav>
                 <Link href="/">Presentation</Link>
                 <Link href="/projects">Mes Projets</Link>
-                <Link href="/contact">Me contacter</Link>
             </nav>
         </header>
     )
