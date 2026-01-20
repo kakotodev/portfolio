@@ -1,5 +1,7 @@
-import ProjectCard from "./ProjectCard"
-import { listProjects } from "../data/projects"
+import ProjectCard from "../card/ProjectCard"
+import { listProjects } from "../../data/projects"
+import Image from 'next/image';
+
 
 export default function Projects() {
     return(

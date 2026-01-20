@@ -1,7 +1,7 @@
-import About from "./components/About";
-import Skills from './components/Skills';
-import Projects from './components/Projects';
-import Contact from "./components/Contact";
+import About from "./components/section/About";
+import Skills from './components/section/Skills';
+import Projects from './components/section/Projects';
+import Contact from "./components/section/Contact";
 
 export default function Home() {
   return (

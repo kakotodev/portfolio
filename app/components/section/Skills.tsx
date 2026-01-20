@@ -1,3 +1,5 @@
+import { listSkills } from "../../data/skills"
+
 export default function Skills() {
 
     
@@ -5,7 +7,10 @@ export default function Skills() {
         <>
             <section>
                 <div>
-                    <h1>Fonctionnalités à venir - Skills</h1>
+                    <h2>Mes Compétences</h2>
+                </div>
+                <div> 
+                    
                 </div>
             </section>
         </>
