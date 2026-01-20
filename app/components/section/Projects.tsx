@@ -11,9 +11,9 @@ export default function Projects() {
                     <h2>Mes Projets Récents</h2>
                 </div>
                 <div className="flex justify-center">
-                    {listProjects.map((project) => (
-                        <ProjectCard  key={project.id} listProjects={project} />
-                    ))}
+                        {listProjects.map((project) => (
+                            <ProjectCard  key={project.id} listProjects={project} />
+                        ))}
                 </div>
             </section>
         </>

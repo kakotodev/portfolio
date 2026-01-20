@@ -1,4 +1,6 @@
-import { listSkills } from "../../data/skills"
+import { listSkills } from "@/app/data/skills"
+import SkillCard from "../card/SkillCard"
+
 
 export default function Skills() {
 
@@ -10,7 +12,7 @@ export default function Skills() {
                     <h2>Mes Compétences</h2>
                 </div>
                 <div> 
-                    
+                    <SkillCard />
                 </div>
             </section>
         </>
