@@ -1,5 +1,6 @@
 import { listSkills } from "@/app/data/skills";
 import { Skill } from "@/app/data/skills";
+import Image from "next/image";
 
 export default function SkillCard() {
 
@@ -9,13 +10,22 @@ export default function SkillCard() {
         }
         acc[skill.category].push(skill);
         return acc;
-    }, {} as Record<string, typeof Skill[]>);
+    }, {} as Record<string, Skill[]>);
 
     return(
         <>
-            <div className="flex justify-center">
-
-            </div>
+            {Object.entries(skillsPerCategory). map(([nameCategory, listSkills]) =>(
+                <div key={nameCategory}>
+                    <h2>{nameCategory}</h2>
+                    <div>
+                        {listSkills.map((skill) => (
+                            <div key={skill.id}>
+                                <Image src={skill.urlImg} alt="skill" width={40} height={40}/>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            ))}
         </>
     )
 }
