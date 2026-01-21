@@ -1,5 +1,5 @@
-import { listSkills } from "@/app/data/skills";
-import { Skill } from "@/app/data/skills";
+import { listSkills } from "@/app/data/data-skills";
+import { Skill } from "@/app/data/data-skills";
 import Image from "next/image";
 
 export default function SkillCard() {

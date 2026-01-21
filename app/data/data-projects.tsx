@@ -9,12 +9,12 @@ export interface Project {
     urlImg: string;
 }
 
-export const listProjects: Project[] = [
+export const listProjects: Project[] = [    
     {
         id: 1,
         title: "MARKO - E-Commerce",
-        description: "Marko est une plateforme de vente de textiles de luxe.",
-        technologies: ["Vue3JS", "FastAPI", "Docker", "TailwindCSS", "PostegreSQL", "Git"],
+        description: "Marko est une plateforme de vente de textiles de luxe. Site web dynamique est responsive, retrouvez plus de 100 fonctionnalités",
+        technologies: ["Vue.JS", "FastAPI", "Docker", "TailwindCSS", "PostegreSQL", "Git"],
         link: "https://github.com/kakotodev/E-Commerce-MARKO",
         urlImg: '/Marko-Ecommerce.svg'
     },
@@ -22,7 +22,7 @@ export const listProjects: Project[] = [
         id: 2,
         title: "Memory",
         description: "Pas de description pour le moment",
-        technologies: ["Pas de technologies pour le moment"],
+        technologies: ["Vue.JS", "FastAPI", "TailwindCSS", "PostegreSQL", "Git"],
         link: "Pas de link",
         urlImg: "/Memory.svg"
     },
@@ -30,7 +30,7 @@ export const listProjects: Project[] = [
         id: 3,
         title: "BuYourPC - E-Commerce",
         description: "Pas de description pour le moment",
-        technologies: ["Pas de technologies pour le moment"],
+        technologies: ["PHP", "Twig"],
         link: "Pas de link",
         urlImg: "/BuyYourPC-Ecommerce.svg"
     }

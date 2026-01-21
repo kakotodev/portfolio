@@ -1,5 +1,5 @@
 import ProjectCard from "../card/ProjectCard"
-import { listProjects } from "../../data/projects"
+import { listProjects } from "../../data/data-projects"
 import Image from 'next/image';
 
 
@@ -8,7 +8,9 @@ export default function Projects() {
         <>
             <section className="block max-w-full">
                 <div>
-                    <h2>Mes Projets Récents</h2>
+                    <div>
+                        <h2>Mes Projets Récents</h2>
+                    </div>
                 </div>
                 <div className="flex justify-center">
                         {listProjects.map((project) => (

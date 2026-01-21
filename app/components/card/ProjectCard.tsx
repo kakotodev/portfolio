@@ -1,16 +1,24 @@
-import { Project } from '../../data/projects';
+import { Project } from '../../data/data-projects';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function ProjectCard({ listProjects }: { listProjects: Project}) {
     return(
         <>
-            <div className='text-center mx-8 my-5 w-[500px] h-[600px] border'>
-                <h3>{listProjects.title}</h3>
-                <p className='text-[20px] !importante italic'>{listProjects.description}</p>
-                <p>{listProjects.technologies}</p>
+            <div className='text-center mx-7 my-5 w-[500px] h-[520px] border'>
                 <div>
-                    <Image src={listProjects.urlImg} alt="Apercu du site web" width={400} height={300} unoptimized   />
+                    <h3>{listProjects.title}</h3>
+                </div>
+                <div className='mb-5'>
+                    {listProjects.technologies.map((tech, index) => (
+                        <span key={index}>{tech}{index < listProjects.technologies.length - 1 && " "}</span>
+                    ))}
+                </div>
+                <div className='text-[18px] h-[100px] italic'>
+                    <p>{listProjects.description}</p>
+                </div>
+                <div className='flex justify-center'>
+                    <Image src={listProjects.urlImg} alt="Apercu du site web" width={600} height={400} unoptimized   />
                 </div>
                 <Link href={listProjects.link}>Clique ici pour acceder au projet</Link>
             </div>

@@ -1,4 +1,4 @@
-import { listSkills } from "@/app/data/skills"
+import { listSkills } from "@/app/data/data-skills"
 import SkillCard from "../card/SkillCard"
 
 
