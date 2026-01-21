@@ -28,7 +28,7 @@ export const listProjects: Project[] = [
     },
     {
         id: 3,
-        title: "BuYourPC - E-Commerce",
+        title: "BuyYourPC - E-Commerce",
         description: "Pas de description pour le moment",
         technologies: ["PHP", "Twig"],
         link: "Pas de link",
