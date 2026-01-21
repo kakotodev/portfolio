@@ -38,7 +38,6 @@ section {
 
 h1 {
   font-size: 80px;
-
 }
 
 h2 {
@@ -49,6 +48,51 @@ h3 {
   font-size: 30px;
 }
 
+@media (max-width: 1024px) {
+  section {
+    /* On divise les marges par 2 pour gagner de la place */
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
+
+  h1 {
+    font-size: 60px; /* Réduction pour éviter que le titre prenne 3 lignes */
+  }
+
+  h2 {
+    font-size: 36px;
+  }
+
+  h3 {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    /* Marges très réduites pour le mobile */
+    margin-top: 60px;
+    margin-bottom: 60px;
+    
+    /* IMPORTANT : Ajout de padding sur les côtés pour que le texte 
+       ne colle pas aux bords de l'écran du téléphone */
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  h1 {
+    font-size: 40px; /* Taille standard pour un gros titre mobile */
+    line-height: 1.1; /* Resserre un peu l'interligne */
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+}
 input {
   border: solid 2px var(--foreground);
 }
