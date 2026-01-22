@@ -16,7 +16,7 @@ export default function Projects() {
                         </div>
                     </div>
                 </div>
-                <div className="flex justify-center">
+                <div className="block lg:flex justify-center">
                         {listProjects.map((project) => (
                             project.urlImg ? (
                             <ProjectCard  key={project.id} listProjects={project} />

@@ -81,16 +81,20 @@ h3 {
   }
 
   h1 {
-    font-size: 40px; /* Taille standard pour un gros titre mobile */
+    font-size: 35px; /* Taille standard pour un gros titre mobile */
     line-height: 1.1; /* Resserre un peu l'interligne */
   }
 
   h2 {
-    font-size: 28px;
+    font-size: 22px;
   }
 
   h3 {
     font-size: 18px;
+  }
+
+  p {
+    font-size : 15px
   }
 }
 input {

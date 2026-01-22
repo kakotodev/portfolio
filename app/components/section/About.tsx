@@ -30,8 +30,11 @@ export default function About() {
         <>
         <section>
             <div id="Intro" className="block">
-                <div>
+                <div className="hidden lg:block">
                     <Typewritter text="Salut ! Moi c'est Vinh-Lâm mais tu peux m'appeller Lam !" delay={50} />
+                </div>
+                <div className="block lg:hidden">
+                    <Typewritter text="Salut moi c'est Lam !" delay={50} />
                 </div>
                 <div className="my-20">
                     <h1 id="titleFadeIn" className="flex justify-center">Développeur full stack</h1>
