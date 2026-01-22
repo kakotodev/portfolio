@@ -31,28 +31,38 @@ export default function Contact() {
                 <div>
                     <h2>Me contacter</h2>
                 </div>
-                <div>
-                    <form ref={form} onSubmit={sendEmail} className="flex items-center">
-                        <div className="form-style">
-                            <label>Nom</label>
-                            <input type="text" name="user_name" required/>
-                        </div>
-                        <div className="form-style">
-                            <label>Email</label>
-                            <input type="email" name="user_email" required/>
-                        </div>
-                        <div className="form-style">
-                            <label>Objet</label>
-                            <input type="text" name="object" required/>
-                        </div>
-                        <div className="form-style">
-                            <label>Message</label>
-                            <textarea name="message" required/>
-                        </div>
-                        <div className="form-style">
-                            <input type="submit" value="Envoyer"/>
-                        </div>
-                    </form>
+                <div className="flex justify-center align-center">
+                    <div className="block w-[600px] h-[500px] border">
+                        <form ref={form} onSubmit={sendEmail} className="block m-5">
+                            <div className="flex justify-between w-[500px] mb-10">
+                                <div className="form-style">
+                                    <label>Nom</label>
+                                    <input type="text" name="user_name" required/>
+                                </div>
+                                <div className="form-style">
+                                    <label>Email</label>
+                                    <input type="email" name="user_email" required/>
+                                </div>
+                            </div>
+                            <div className="w-[500px] mb-20">
+                                <div className="form-style">
+                                    <label>Objet</label>
+                                    <input type="text" name="object" required/>
+                                </div>
+                            </div>
+                            <div className="w-[500px]">
+                                <div className="form-style">
+                                    <label>Message</label>
+                                    <textarea name="message" required/>
+                                </div>                                
+                            </div>
+                            <div className="flex justify-end">
+                                <div className="form-style w-[80px]">
+                                    <input type="submit" value="Envoyer"/>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </section>
         </>

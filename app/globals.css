@@ -101,6 +101,14 @@ input {
   border: solid 2px var(--foreground);
 }
 
+input {
+  height: 25px !important;
+}
+
+textarea {
+  height: 0px;
+}
+
 .form-style {
   display: flex;
   flex-direction: column;
