@@ -1,6 +1,9 @@
 'use client';
 import { useRef } from "react";
+
 import emailjs from '@emailjs/browser';
+
+import {Input, Label, TextField, TextArea} from "@heroui/react";
 
 
 
@@ -35,26 +38,26 @@ export default function Contact() {
                     <div className="block w-[600px] h-[500px] border">
                         <form ref={form} onSubmit={sendEmail} className="block m-5">
                             <div className="flex justify-between w-[500px] mb-10">
-                                <div className="form-style">
-                                    <label>Nom</label>
-                                    <input type="text" name="user_name" required/>
+                                <div className="flex flex-col gap-1 w-48">
+                                    <Label htmlFor="name">Name</Label>
+                                    <Input fullWidth id="name" placeholder="Enter your name" type="text" name="user_name" required/>
                                 </div>
-                                <div className="form-style">
-                                    <label>Email</label>
-                                    <input type="email" name="user_email" required/>
-                                </div>
+                                <TextField className="w-full max-w-64" name="user_email" type="email">
+                                    <Label>Email</Label>
+                                    <Input placeholder="Enter your email" required/>
+                                </TextField>
                             </div>
-                            <div className="w-[500px] mb-20">
-                                <div className="form-style">
-                                    <label>Objet</label>
-                                    <input type="text" name="object" required/>
+                            <div className="w-[500px] mb-10">
+                                <div className="flex flex-col gap-1">
+                                    <Label htmlFor="object">Objet</Label>
+                                    <Input fullWidth name="object" id="object" placeholder="Rentrer votre objet" type="text" required/>
                                 </div>
                             </div>
                             <div className="w-[500px]">
-                                <div className="form-style">
-                                    <label>Message</label>
-                                    <textarea name="message" required/>
-                                </div>                                
+                                <div>
+                                    <label htmlFor="message">Message</label>
+                                    <TextArea className="w-full h-[150px]" name="message" id="message" placeholder="Rentrer votre message" required/>
+                                </div>
                             </div>
                             <div className="flex justify-end">
                                 <div className="form-style w-[80px]">
