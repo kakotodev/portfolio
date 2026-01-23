@@ -43,6 +43,17 @@ export default function About() {
         );
     }
 
+    const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, targetId: string) => {
+        e.preventDefault();
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        window.history.pushState(null, '', `#${targetId}`);
+    }
+
     return(
         <>
         <section>
@@ -57,8 +68,8 @@ export default function About() {
                     <h1 className="">Développeur full stack</h1>
                 </div>
                 <div>
-                    <Link href="#Projects" scroll={false}>Voir mes projets</Link>
-                    <Link href="#Contact" scroll={false}>Me contacter</Link>
+                    <Link href="#projects" scroll={false} onClick={(e) => handleScroll(e, "projects")}>Voir mes projets</Link>
+                    <Link href="#contact" scroll={false} onClick={(e) => handleScroll(e, "contact")}>Me contacter</Link>
                 </div>
             </div>
 

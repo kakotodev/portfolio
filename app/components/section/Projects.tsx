@@ -5,7 +5,7 @@ import Link from "next/link"
 export default function Projects() {
     return(
         <>
-            <section id="Projects" className="block max-w-full">
+            <section id="projects" className="block max-w-full">
                 <div className="flex justify-center">
                     <div className="flex justify-between items-center w-[1650px]">
                         <div>
