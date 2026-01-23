@@ -84,7 +84,7 @@ export default function About() {
     return(
         <>
         <section>
-            <div className="flex gap-10 mx-0 lg:mx-20">
+            <div className="block mx-0 lg:mx-20 lg:flex lg:gap-20">
                 <div id="Intro" className="block max-w-[1000px] text-center lg:text-left">
                     <div className="text-[30px]">
                         <Typerwritter words={['Bonjour, je suis', "Hello, I'm"]} />
@@ -95,7 +95,7 @@ export default function About() {
                     <div className="">
                         <h1 className="">Développeur full stack</h1>
                     </div>
-                    <div className="flex gap-5">
+                    <div className="flex gap-5 justify-center mt-5 lg:justify-start ">
                         <Link href="#projects" scroll={false} onClick={(e) => handleScroll(e, "projects")}>
                             <Button>Voir mes projets</Button>
                         </Link>
@@ -104,21 +104,26 @@ export default function About() {
                         </Link>
                     </div>
                 </div>
-                <div>
+                <div className="">
                     <SyntaxHighlighter language="typescript" style={monokai} className="rounded-lg p-5 mt-10 lg:mt-0">
                         {codeString}
                     </SyntaxHighlighter>
                 </div>
             </div>
 
-            <div id="About" className="mt-180">
+            <div id="About" className="mt-50">
                 <div>
-                    <h2>A propos</h2>
-                </div>
-                <div className="text-[25px]">
-                    <p>Salut ! Je suis Lam et j&apos;ai 19 ans, actuellement Etudiant à l&apos;Efrei dans le IT. J&apos;apprends le développement web via des projets que j&apos;ai effectué sur mon <span>Github</span></p>
-                    <p>Pendant mes temps libres je pratique de la musculation et je joue à des Jeux Rythm ! Mais ce que je prefere par dessus c&apos;est de lire la docs et debugger mon code</p>
-                    <p>Mon objectif c&apos;est d&apos;apprendre tout les jours à devenir un meilleur développeur donc hésite pas me <span>Contacter !</span></p>
+                    <div className="text-center lg:text-left lg:mx-80">
+                        <h2>À propos de moi</h2>
+                    </div>
+                    <div className="flex justify-center text-[23px] mt-10 mx-5 lg:mx-80">
+                        <div className="lg:w-[800px]">
+                            <p>Salut ! Je suis Lam et j&apos;ai 19 ans, actuellement Etudiant à l&apos;Efrei dans le IT. J&apos;apprends le développement web via des projets que j&apos;ai effectué sur mon <span>Github.</span></p><br />
+                            <p>Pendant mes temps libres je pratique de la musculation et je joue à des Jeux Rythm ! Mais ce que je prefere par dessus c&apos;est de lire la docs et debugger mon code.</p><br />
+                            <p>Mon objectif c&apos;est d&apos;apprendre tout les jours à devenir un meilleur développeur donc hésite pas me <span>contacter!</span></p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
       </section>
