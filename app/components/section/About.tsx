@@ -1,40 +1,56 @@
 "use client"
 
-import React, {useState, useEffect} from "react"
+import {useState, useEffect} from "react"
 
 export default function About() {
 
     interface TypewriterProps {
-        text: string;
-        delay: number;
+        words: string[],
+        typingspeed?: number,
+        deletingspeed?: number,
+        pauseTime: number,
     }
 
-    const Typewritter = ({ text, delay }: TypewriterProps) => {
-        const [currentText, setCurrentText] = useState('')
+    const Typewritter = ({words, typingspeed = 300, deletingspeed = 100, pauseTime = 2000 }: TypewriterProps) => {
+        const [currentText, setCurrentText] = useState("")
         const [currentIndex, setCurrentIndex] = useState(0)
+        const [isDeleting, setIsDeleting] = useState(false)
 
-        useEffect(() => {
-            if (currentIndex < text.length) {
-                const timeout = setTimeout(() => {
-                    setCurrentText((prevText) => prevText + text[currentIndex])
-                    setCurrentIndex((prevIndex) => prevIndex + 1)
-                }, delay)
-                return () => clearTimeout(timeout)
+    useEffect(() => {
+        const word = words[currentIndex]; 
+
+        const timeout = setTimeout(() => {
+            if (!isDeleting) {
+                setCurrentText(word.substring(0, currentText.length + 1));
+                if (currentText === word) {
+                    setIsDeleting(true);
+                }
+            } else {
+                setCurrentText(word.substring(0, currentText.length - 1));
+
+                if (currentText === "") {
+                    setIsDeleting(false);
+                    setCurrentIndex((prev) => (prev + 1) % words.length);
+                }
             }
-        }, [currentIndex, text, delay])
+        }, isDeleting ? (currentText === word ? pauseTime : deletingspeed): typingspeed);
 
-        return <h3 className="flex justify-center">{currentText}</h3>
+        return () => clearTimeout(timeout); 
+        }, [currentText, isDeleting, currentIndex, words]);
+
+        return (
+            <span className="font-mono">
+                {currentText}
+                <span className="border-r-2 border-foreground ml-1 animate-pulse">|</span>
+            </span>
+        );
     }
-
     return(
         <>
         <section>
             <div id="Intro" className="block">
-                <div className="hidden lg:block">
-                    <Typewritter text="Salut ! Moi c'est Vinh-Lâm mais tu peux m'appeller Lam !" delay={50} />
-                </div>
-                <div className="block lg:hidden">
-                    <Typewritter text="Salut moi c'est Lam !" delay={50} />
+                <div className="">
+                    <Typewritter words={["Salut moi c'est Lam", "Etudiant à EFREI", "Dev Junior"]} typingspeed={100} pauseTime={150}/>
                 </div>
                 <div className="my-20">
                     <h1 id="titleFadeIn" className="flex justify-center">Développeur full stack</h1>
