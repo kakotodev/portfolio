@@ -1,9 +1,36 @@
 "use client"
 
 import {useState, useEffect} from "react"
-import Link from "next/link"
+import { Button } from "@heroui/react";
+import Link from "next/link";
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { monokai } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 export default function About() {
+
+    const codeString = `const developer = {
+        name: "Vinh-Lâm LÊ",
+        name-use: "Lam",
+        age: 19,
+        role: "Développeur Fullstack",
+        location: "Paris, France",
+        favoriteTechStack: {
+            frontend: ["React", "Angular", "Vue.js"],
+            backend: ["FastAPI", "Symfony", "Java Spring Boot"]
+        },
+        hobbies: ["Musculation", "Jeux-Vidéo", "Codée"],
+        passion: "Créer des interfaces fluides et performantes",
+        available: true,
+        contact: () => {
+            return "email@exemple.com";
+            }
+        };
+
+        console.log(developer);`;
+
+
+
+
 
     interface TypewriterProps {
         words: string[];
@@ -57,19 +84,30 @@ export default function About() {
     return(
         <>
         <section>
-            <div id="Intro" className="block max-w-[1000px] text-center lg:text-left">
-                <div className="text-[30px]">
-                    <Typerwritter words={['Bonjour, je suis', "Hello, I'm"]} />
+            <div className="flex gap-10 mx-0 lg:mx-20">
+                <div id="Intro" className="block max-w-[1000px] text-center lg:text-left">
+                    <div className="text-[30px]">
+                        <Typerwritter words={['Bonjour, je suis', "Hello, I'm"]} />
+                    </div>
+                    <div>
+                        <h2>Vinh-Lâm LÊ</h2>
+                    </div>
+                    <div className="">
+                        <h1 className="">Développeur full stack</h1>
+                    </div>
+                    <div className="flex gap-5">
+                        <Link href="#projects" scroll={false} onClick={(e) => handleScroll(e, "projects")}>
+                            <Button>Voir mes projets</Button>
+                        </Link>
+                        <Link href="#contact" scroll={false} onClick={(e) => handleScroll(e, "contact")}>
+                            <Button className="text-black"variant="tertiary">Me contacter</Button>
+                        </Link>
+                    </div>
                 </div>
                 <div>
-                    <h2>Vinh-Lâm LÊ</h2>
-                </div>
-                <div className="">
-                    <h1 className="">Développeur full stack</h1>
-                </div>
-                <div>
-                    <Link href="#projects" scroll={false} onClick={(e) => handleScroll(e, "projects")}>Voir mes projets</Link>
-                    <Link href="#contact" scroll={false} onClick={(e) => handleScroll(e, "contact")}>Me contacter</Link>
+                    <SyntaxHighlighter language="typescript" style={monokai} className="rounded-lg p-5 mt-10 lg:mt-0">
+                        {codeString}
+                    </SyntaxHighlighter>
                 </div>
             </div>
 
