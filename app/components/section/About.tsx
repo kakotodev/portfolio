@@ -1,61 +1,67 @@
 "use client"
 
 import {useState, useEffect} from "react"
+import Link from "next/link"
 
 export default function About() {
 
     interface TypewriterProps {
-        words: string[],
-        typingspeed?: number,
-        deletingspeed?: number,
-        pauseTime: number,
+        words: string[];
+        delay?: number;
     }
 
-    const Typewritter = ({words, typingspeed = 300, deletingspeed = 100, pauseTime = 2000 }: TypewriterProps) => {
-        const [currentText, setCurrentText] = useState("")
-        const [currentIndex, setCurrentIndex] = useState(0)
-        const [isDeleting, setIsDeleting] = useState(false)
+    const Typerwritter = ({ words, delay = 200 }: TypewriterProps) => {
+        const [text, setText] = useState('');
+        const [isDeleting, setIsDeleting] = useState(false);
+        const [loopNum, setLoopNum] = useState(0);
+        const [typingSpeed, setTypingSpeed] = useState(100);
 
-    useEffect(() => {
-        const word = words[currentIndex]; 
+        useEffect(() => {
+            const handleTyping = () => {
+                const i = loopNum % words.length;
+                const fullText = words[i];
 
-        const timeout = setTimeout(() => {
-            if (!isDeleting) {
-                setCurrentText(word.substring(0, currentText.length + 1));
-                if (currentText === word) {
+                setText(isDeleting ? fullText.substring(0, text.length - 1) : fullText.substring(0, text.length + 1));
+
+                if (!isDeleting && text === fullText) {
                     setIsDeleting(true);
-                }
-            } else {
-                setCurrentText(word.substring(0, currentText.length - 1));
-
-                if (currentText === "") {
+                    setTypingSpeed(delay);
+                } else if (isDeleting && text === '') {
                     setIsDeleting(false);
-                    setCurrentIndex((prev) => (prev + 1) % words.length);
+                    setLoopNum(loopNum + 1);
+                    setTypingSpeed(40);
                 }
-            }
-        }, isDeleting ? (currentText === word ? pauseTime : deletingspeed): typingspeed);
+            };
 
-        return () => clearTimeout(timeout); 
-        }, [currentText, isDeleting, currentIndex, words]);
+            const timer = setTimeout(handleTyping, typingSpeed);
+
+            return() => clearTimeout(timer);
+        }, [text, isDeleting, loopNum, words, delay, typingSpeed]);
 
         return (
-            <span className="font-mono">
-                {currentText}
-                <span className="border-r-2 border-foreground ml-1 animate-pulse">|</span>
-            </span>
+            <span>{text}<span className="">|</span></span>
         );
     }
+
     return(
         <>
         <section>
-            <div id="Intro" className="block">
-                <div className="">
-                    <Typewritter words={["Salut moi c'est Lam", "Etudiant à EFREI", "Dev Junior"]} typingspeed={100} pauseTime={150}/>
+            <div id="Intro" className="block max-w-[1000px] text-center lg:text-left">
+                <div className="text-[30px]">
+                    <Typerwritter words={['Bonjour, je suis', "Hello, I'm"]} />
                 </div>
-                <div className="my-20">
-                    <h1 id="titleFadeIn" className="flex justify-center">Développeur full stack</h1>
+                <div>
+                    <h2>Vinh-Lâm LÊ</h2>
+                </div>
+                <div className="">
+                    <h1 className="">Développeur full stack</h1>
+                </div>
+                <div>
+                    <Link href="#Projects" scroll={false}>Voir mes projets</Link>
+                    <Link href="#Contact" scroll={false}>Me contacter</Link>
                 </div>
             </div>
+
             <div id="About" className="mt-180">
                 <div>
                     <h2>A propos</h2>
