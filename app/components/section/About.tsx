@@ -1,25 +1,65 @@
 "use client"
 
+import { useState, useEffect, use } from "react"
 import { listSoftSkills } from "@/app/data/data-soft-skills";
+import { SoftSkills } from "@/app/data/data-soft-skills";
 
 export default function About() {
 
+    interface CarouselBadge {
+        items: SoftSkills[];
+        itemsPerPage?: number;
+        interval?: number;
+    }
+
+    function RotatingList({
+        items,
+        itemsPerPage = 3,
+        interval = 5000,
+    }: CarouselBadge) {
+        const [currentPage, setCurrentPage] = useState(0);
+
+        const totalPages = Math.ceil(items.length / itemsPerPage);
+
+        useEffect(() => {
+            const timer = setInterval(() => {
+                setCurrentPage((prevPage) => (prevPage + 1) % totalPages);
+            }, interval);
+
+            return () => clearInterval(timer);
+        }, [totalPages, interval]);
+
+        const startIndex = currentPage * itemsPerPage;
+        const visibleItems = items.slice(startIndex, startIndex + itemsPerPage);
+
+        return (
+            <div className="flex gap-2 lg:gap-4 justify-center mt-2">
+                {visibleItems.map((item) => (
+                    <div key={item.id} className="text-[12px] lg:text-[18px] lg:px-4 px-[2px] py-2 bg-gray-200 text-gray-800 rounded-full shadow-md">
+                        {item.name}
+                    </div>
+                ))}
+            </div>
+        );
+
+    }
 
     return(
         <>
         <section>
             <div id="About" className="mt-50">
                 <div>
-                    <div className="flex justify-center lg:gap-10 lg:text-left lg:mx-80">
-                        <div>
+                    <div className="block lg:flex justify-center lg:gap-10 lg:text-left lg:mx-80">
+                        <div className="w-[310px] mx-5 lg:mx-0 lg:w-[400px]">
                             <h2>À propos de moi</h2>
                         </div>
-                        <div className="flex ">
-                            {listSoftSkills.map((skill) => (
-                                <div key={skill.id} className="mx-2">
-                                    <span>{skill.name}</span>
-                                </div>
-                            ))}
+                        <div className="flex items-center w-[310px] mx-5 lg:w-[600px]">
+                            <div className="hidden lg:block flex justify-center lg:justify-start">
+                                <RotatingList items={listSoftSkills} itemsPerPage={3} interval={5000} />
+                            </div>
+                            <div className="block lg:hidden flex justify-center lg:justify-start">
+                                <RotatingList items={listSoftSkills} itemsPerPage={2} interval={5000} />
+                            </div>
                         </div>
                     </div>
                     <div className="flex justify-center text-[23px] mt-10 mx-5 lg:mx-80">

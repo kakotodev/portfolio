@@ -5,7 +5,6 @@ import { Button } from "@heroui/react";
 import Link from "next/link";
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { monokai } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { listSoftSkills } from "@/app/data/data-soft-skills";
 
 export default function Hero() {
 
