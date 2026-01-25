@@ -7,12 +7,12 @@ export default function Skills() {
     
     return(
         <>
-            <section>
+            <section className="mx-5 lg:mx-0">
                 <div className="text-center lg:text-left">
                     <div>
                         <h2>Mes Compétences</h2>
                     </div>
-                    <div className="border"> 
+                    <div className=""> 
                         <SkillCard />
                     </div>
                 </div>

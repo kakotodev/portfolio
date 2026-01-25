@@ -14,7 +14,7 @@ const CatStack = ['Language', 'Framework', 'Outils'] as const;
 
 const TechStack = {
     languages: [
-        'HTML', 'CSS', 'JavaScript', 'TypeScript', 'Python', 'PHP'
+        'HTML', 'CSS', 'JavaScript', 'TypeScript', 'Python', 'Java', 'PHP'
     ],
     frameworks: [
         'ReactJS', 'Angular', 'Vue.JS', 'Alpine.JS', 'TailwindCSS', 
@@ -31,6 +31,7 @@ const urlImgStack = [
     'https://cdn.simpleicons.org/javascript/F7DF1E',
     'https://cdn.simpleicons.org/typescript/3178C6',
     'https://cdn.simpleicons.org/python/3776AB',
+    '/java.svg',
     'https://cdn.simpleicons.org/php/777BB4',
     'https://cdn.simpleicons.org/react/61DAFB',
     'https://cdn.simpleicons.org/angular/DD0031',
