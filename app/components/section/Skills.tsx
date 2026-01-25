@@ -8,11 +8,13 @@ export default function Skills() {
     return(
         <>
             <section>
-                <div>
-                    <h2>Mes Compétences</h2>
-                </div>
-                <div> 
-                    <SkillCard />
+                <div className="text-center lg:text-left">
+                    <div>
+                        <h2>Mes Compétences</h2>
+                    </div>
+                    <div className="border"> 
+                        <SkillCard />
+                    </div>
                 </div>
             </section>
         </>
