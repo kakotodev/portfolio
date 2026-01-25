@@ -114,6 +114,41 @@ h3 {
   margin-top: 20px;
 }
 
+.text-neon-pink {
+  background: linear-gradient(90deg, #ff00de 0%, #00f6ff 100%);
+  /* 3. On "coupe" le fond pour qu'il n'apparaisse que dans les lettres */
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  /* 4. On rend le texte transparent pour laisser voir le dégradé dessous */
+  -webkit-text-fill-color: transparent;
+}
+
+.text-neon-blue {
+  color: #6abfff;
+
+}
+
+.text-neon-green {
+  color: #6aff95;
+
+}
+
+.text-neon-yellow {
+  color: #fff86a;
+
+}
+
+.text-neon-purple {
+  color: #c76aff;
+
+}
+
+.text-neon-orange {
+  color: #ff9b6a;
+
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -122,3 +157,4 @@ h3 {
     opacity: 1;
   }
 }
+

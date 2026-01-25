@@ -1,8 +1,10 @@
 "use client"
 
-import { useState, useEffect, use } from "react"
+import { useState, useEffect} from "react"
 import { listSoftSkills } from "@/app/data/data-soft-skills";
 import { SoftSkills } from "@/app/data/data-soft-skills";
+import { colorNeonSoftSkills } from "@/app/data/data-soft-skills";
+import { start } from "repl";
 
 export default function About() {
 
@@ -10,12 +12,14 @@ export default function About() {
         items: SoftSkills[];
         itemsPerPage?: number;
         interval?: number;
+        color: string;
     }
 
     function RotatingList({
         items,
         itemsPerPage = 3,
         interval = 5000,
+        color,
     }: CarouselBadge) {
         const [currentPage, setCurrentPage] = useState(0);
 
@@ -31,14 +35,19 @@ export default function About() {
 
         const startIndex = currentPage * itemsPerPage;
         const visibleItems = items.slice(startIndex, startIndex + itemsPerPage);
+        const visibleColors = colorNeonSoftSkills;
 
         return (
             <div className="flex gap-2 lg:gap-4 justify-center mt-2">
-                {visibleItems.map((item) => (
-                    <div key={item.id} className="text-[12px] lg:text-[18px] lg:px-4 px-[2px] py-2 bg-gray-200 text-gray-800 rounded-full shadow-md">
-                        {item.name}
-                    </div>
-                ))}
+                {visibleItems.map((item) => {
+
+                    const curentColor = visibleColors[startIndex] || "text-white";
+
+                    return(
+                        <div key={item.id} className={`${curentColor}`}>
+                            {item.name}
+                        </div>
+                )})}
             </div>
         );
 
@@ -58,7 +67,7 @@ export default function About() {
                                 <RotatingList items={listSoftSkills} itemsPerPage={3} interval={5000} />
                             </div>
                             <div className="block lg:hidden flex justify-center lg:justify-start">
-                                <RotatingList items={listSoftSkills} itemsPerPage={2} interval={5000} />
+                                <RotatingList items={listSoftSkills} itemsPerPage={2} interval={4000} />
                             </div>
                         </div>
                     </div>
