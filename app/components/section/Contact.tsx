@@ -35,33 +35,34 @@ export default function Contact() {
                     <h2>Me contacter</h2>
                 </div>
                 <div className="flex justify-center align-center">
-                    <div className="block w-[600px] h-[500px] border">
-                        <form ref={form} onSubmit={sendEmail} className="block m-5">
-                            <div className="flex justify-between w-[500px] mb-10">
-                                <div className="flex flex-col gap-1 w-48">
+                    <div className="w-full max-w-[600px] h-auto border mx-auto">
+                        <form ref={form} onSubmit={sendEmail} className="flex flex-col gap-6 p-5">
+                            <div className="flex flex-col md:flex-row gap-4 w-full">
+                                <div className="flex flex-col gap-1 w-full">
                                     <Label htmlFor="name">Name</Label>
-                                    <Input fullWidth id="name" placeholder="Enter your name" type="text" name="user_name" required/>
+                                    <Input fullWidth id="name" placeholder="Enter your name" type="text" name="user_name" required className="w-full"/>
                                 </div>
-                                <TextField className="w-full max-w-64" name="user_email" type="email">
+                                
+                                <TextField className="w-full" name="user_email" type="email">
                                     <Label>Email</Label>
-                                    <Input placeholder="Enter your email" required/>
+                                    <Input placeholder="Enter your email" required className="w-full"/>
                                 </TextField>
                             </div>
-                            <div className="w-[500px] mb-10">
+                            <div className="w-full">
                                 <div className="flex flex-col gap-1">
                                     <Label htmlFor="object">Objet</Label>
-                                    <Input fullWidth name="object" id="object" placeholder="Rentrer votre objet" type="text" required/>
+                                    <Input fullWidth name="object" id="object" placeholder="Rentrer votre objet" type="text" required className="w-full"/>
                                 </div>
                             </div>
-                            <div className="w-[500px]">
-                                <div>
+                            <div className="w-full">
+                                <div className="flex flex-col gap-1">
                                     <label htmlFor="message">Message</label>
-                                    <TextArea className="w-full h-[150px]" name="message" id="message" placeholder="Rentrer votre message" required/>
+                                    <TextArea className="w-full min-h-[150px]" name="message" id="message" placeholder="Rentrer votre message" required/>
                                 </div>
                             </div>
                             <div className="flex justify-end">
-                                <div className="form-style w-[80px]">
-                                    <input type="submit" value="Envoyer"/>
+                                <div className="form-style w-full md:w-[80px]">
+                                    <input type="submit" value="Envoyer" className="w-full cursor-pointer"/>
                                 </div>
                             </div>
                         </form>
