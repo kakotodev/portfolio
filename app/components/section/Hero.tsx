@@ -105,7 +105,7 @@ export default function Hero() {
                     </div>
                 </div>
                 <div className="">
-                    <SyntaxHighlighter language="typescript" style={monokai} className="rounded-lg p-5 mt-10 lg:mt-0">
+                    <SyntaxHighlighter language="typescript" style={monokai} className="rounded-lg p-5 mt-10 text-[9px] lg:text-[19px] lg:mt-0">
                         {codeString}
                     </SyntaxHighlighter>
                 </div>
