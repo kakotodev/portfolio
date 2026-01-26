@@ -17,8 +17,8 @@ const TechStack = {
         'HTML', 'CSS', 'JavaScript', 'TypeScript', 'Python', 'Java', 'PHP'
     ],
     frameworks: [
-        'ReactJS', 'Angular', 'Vue.JS', 'Alpine.JS', 'TailwindCSS', 
-        'Bootstrap', 'FastAPI', 'Django', 'Symfony', 'NodeJS', 'NextJS'
+        'ReactJS', 'Angular', 'Vue.JS', 
+        'FastAPI', 'Django', 'Symfony', 'NodeJS', 'NextJS'
     ],
     tools: [
         'MySQL', 'PostgreSQL', 'MangoDB', 'MariaDB', 'Git', 'Docker', 'Figma'
@@ -36,9 +36,6 @@ const urlImgStack = [
     'https://cdn.simpleicons.org/react/61DAFB',
     'https://cdn.simpleicons.org/angular/DD0031',
     'https://cdn.simpleicons.org/vue.js/4FC08D',
-    'https://cdn.simpleicons.org/alpine.js/8BC0D0',
-    'https://cdn.simpleicons.org/tailwindcss/06B6D4',
-    'https://cdn.simpleicons.org/bootstrap/7952B3',
     'https://cdn.simpleicons.org/fastapi/009688',
     'https://cdn.simpleicons.org/django/092E20',
     'https://cdn.simpleicons.org/symfony/000000',
