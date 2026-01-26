@@ -46,3 +46,5 @@ export const listProjects: Project[] = [
         urlImg: "/BuyYourPC-Ecommerce.svg"
     }
 ];
+
+export const GitHubIconsLink = "https://cdn.simpleicons.org/github/FFFFFF";
