@@ -33,7 +33,7 @@ export default function ProjectCard({ listProjects }: { listProjects: Project}) 
                     </div>
                 <Link href={listProjects.link}>Clique ici pour acceder au projet</Link>
             </div>
-            <div className='block lg:hidden w-[300px] text-center mx-7 my-5 h-[400px] border'>
+            <div className='block lg:hidden w-[300px] text-center mx-7 my-15 h-[400px] border'>
                 <div className='block flex justify-center'>
                     <Image src={listProjects.urlImg} alt="Apercu du site web" width={300} height={225} unoptimized   />
                 </div>
