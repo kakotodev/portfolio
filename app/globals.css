@@ -119,11 +119,8 @@ h3 {
 
 .text-neon-pink {
   background: linear-gradient(90deg, #ff00de 0%, #00f6ff 100%);
-  /* 3. On "coupe" le fond pour qu'il n'apparaisse que dans les lettres */
   -webkit-background-clip: text;
   background-clip: text;
-
-  /* 4. On rend le texte transparent pour laisser voir le dégradé dessous */
   -webkit-text-fill-color: transparent;
 }
 
@@ -152,6 +149,17 @@ h3 {
 
 }
 
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+.gradient-0 {
+  background: white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 .gradient-1 {
   background: var(--gradient-1);
   -webkit-background-clip: text;
@@ -166,5 +174,10 @@ h3 {
   to {
     opacity: 1;
   }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 

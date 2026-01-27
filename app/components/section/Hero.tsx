@@ -33,42 +33,36 @@ export default function Hero() {
 
 
     interface TypewriterProps {
-        words: string[];
+        text: string;
         delay?: number;
     }
 
-    const Typerwritter = ({ words, delay = 200 }: TypewriterProps) => {
-        const [text, setText] = useState('');
-        const [isDeleting, setIsDeleting] = useState(false);
-        const [loopNum, setLoopNum] = useState(0);
-        const [typingSpeed, setTypingSpeed] = useState(100);
+        const Typerwritter = ({ text, delay = 100 }: TypewriterProps) => {
+        const [currentText, setCurrentText] = useState('');
+        const [currentIndex, setCurrentIndex] = useState(0);
+
+        const isTyping = currentIndex < text.length;
 
         useEffect(() => {
-            const handleTyping = () => {
-                const i = loopNum % words.length;
-                const fullText = words[i];
+            if (currentIndex < text.length) {
+                const timeout = setTimeout(() => {
+                    setCurrentText(prevText => prevText + text[currentIndex]);
+                    setCurrentIndex(prevIndex => prevIndex + 1);
+                }, delay);
 
-                setText(isDeleting ? fullText.substring(0, text.length - 1) : fullText.substring(0, text.length + 1));
-
-                if (!isDeleting && text === fullText) {
-                    setIsDeleting(true);
-                    setTypingSpeed(delay);
-                } else if (isDeleting && text === '') {
-                    setIsDeleting(false);
-                    setLoopNum(loopNum + 1);
-                    setTypingSpeed(40);
-                }
-            };
-
-            const timer = setTimeout(handleTyping, typingSpeed);
-
-            return() => clearTimeout(timer);
-        }, [text, isDeleting, loopNum, words, delay, typingSpeed]);
+                return () => clearTimeout(timeout);
+            }
+        }, [currentIndex, delay, text]);
 
         return (
-            <span>{text}<span className="">|</span></span>
+            <span className="inline-flex items-center">
+                {currentText}
+                <span className={`gradient-0 ${!isTyping ? 'cursor-blink' : ''}`}>
+                    |
+                </span>
+            </span>
         );
-    }
+    };
 
     const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, targetId: string) => {
         e.preventDefault();
@@ -84,14 +78,16 @@ export default function Hero() {
     return(
         <>
         <section>
-            <div className="block mx-0 lg:mx-20 lg:flex lg:gap-20">
+            <div className="block mx-0 lg:mx-20 lg:flex lg:gap-15">
                 <div id="Intro" className="block max-w-[1000px] text-center lg:text-left">
-                    <div className="text-[30px]">
-                        <Typerwritter words={['Bonjour, je suis', "Hello, I'm"]} />
+                    <div className="text-[20px]">
+                        <h3>
+                            <span>Bonjour, je suis</span>
+                        </h3>
                     </div>
                     <div>
-                        <h2>
-                            <span className="gradient-1">VinhLam LE</span>
+                        <h2 className="gradient-1">
+                            <Typerwritter text={"Vinh-Lam LE"}></Typerwritter>
                         </h2>
                     </div>
                     <div >
