@@ -4,6 +4,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --gradient-1: linear-gradient(135deg, #c084fc 0%, #a78bfa 50%, #67e8f9 100%);
+  --gradient-2: linear-gradient(135deg, #67e8f9 0%, #a78bfa 50%, #fbbf24 100%);
+  --gradient-3: linear-gradient(135deg, #86efac 0%, #67e8f9 100%);
 }
 
 @theme {
@@ -147,6 +150,13 @@ h3 {
 .text-neon-orange {
   color: #ff9b6a;
 
+}
+
+.gradient-1 {
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 @keyframes fadeIn {

@@ -90,10 +90,14 @@ export default function Hero() {
                         <Typerwritter words={['Bonjour, je suis', "Hello, I'm"]} />
                     </div>
                     <div>
-                        <h2>Vinh-Lâm LÊ</h2>
+                        <h2>
+                            <span className="gradient-1">VinhLam LE</span>
+                        </h2>
                     </div>
-                    <div className="">
-                        <h1 className="">Développeur full stack</h1>
+                    <div >
+                        <h1>
+                            <span className="gradient-1">Développeur full stack</span>
+                        </h1>
                     </div>
                     <div className="flex gap-5 justify-center mt-5 lg:justify-start ">
                         <Link href="#projects" scroll={false} onClick={(e) => handleScroll(e, "projects")}>
