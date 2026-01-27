@@ -7,7 +7,7 @@ export default function Skills() {
     
     return(
         <>
-            <section className="mx-5 lg:mx-0">
+            <section id="skills" className="mx-5 lg:mx-0">
                 <div className="text-center">
                     <div>
                         <h2>Mes Compétences</h2>

@@ -6,6 +6,9 @@ import Link from "next/link";
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { monokai } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
+import {Rocket} from '@gravity-ui/icons';
+import {EnvelopeOpen} from '@gravity-ui/icons';
+
 export default function Hero() {
 
     const codeString = `const developer = {
@@ -77,7 +80,7 @@ export default function Hero() {
 
     return(
         <>
-        <section>
+        <section id="hero">
             <div className="block mx-0 lg:mx-20 lg:flex lg:gap-15">
                 <div id="Intro" className="block max-w-[1000px] text-center lg:text-left">
                     <div className="text-[20px]">
@@ -97,10 +100,10 @@ export default function Hero() {
                     </div>
                     <div className="flex gap-5 justify-center mt-5 lg:justify-start ">
                         <Link href="#projects" scroll={false} onClick={(e) => handleScroll(e, "projects")}>
-                            <Button>Voir mes projets</Button>
+                            <Button><Rocket></Rocket>Voir mes projets</Button>
                         </Link>
                         <Link href="#contact" scroll={false} onClick={(e) => handleScroll(e, "contact")}>
-                            <Button className="text-black"variant="tertiary">Me contacter</Button>
+                            <Button className="text-black"variant="tertiary"><EnvelopeOpen></EnvelopeOpen>Me contacter</Button>
                         </Link>
                     </div>
                 </div>

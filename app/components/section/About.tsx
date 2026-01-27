@@ -4,7 +4,6 @@ import { useState, useEffect} from "react"
 import { listSoftSkills } from "@/app/data/data-soft-skills";
 import { SoftSkills } from "@/app/data/data-soft-skills";
 import { colorNeonSoftSkills } from "@/app/data/data-soft-skills";
-import { start } from "repl";
 
 export default function About() {
 
@@ -12,14 +11,12 @@ export default function About() {
         items: SoftSkills[];
         itemsPerPage?: number;
         interval?: number;
-        color: string;
     }
 
     function RotatingList({
         items,
         itemsPerPage = 3,
         interval = 5000,
-        color,
     }: CarouselBadge) {
         const [currentPage, setCurrentPage] = useState(0);
 
@@ -56,7 +53,7 @@ export default function About() {
     return(
         <>
         <section>
-            <div id="About" className="mt-50">
+            <div id="about" className="mt-50">
                 <div>
                     <div className="block lg:flex justify-center lg:gap-10 lg:text-left lg:mx-80">
                         <div className="w-[310px] mx-5 lg:mx-0 lg:w-[400px]">
