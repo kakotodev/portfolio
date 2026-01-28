@@ -200,8 +200,6 @@ h3 {
 /* 2. Le Conteneur Principal (C'est lui qui penche) */
 .skill-card-container {
   position: relative;
-  width: 100%;
-  height: 100%;
   /* L'inclinaison est appliquée ici sur tout le bloc */
   transform: rotate(-3deg);
   transition: transform 0.3s ease;
@@ -215,8 +213,6 @@ h3 {
 /* 3. La Carte Opaque (Le contenu intérieur) */
 .skill-card-content {
   position: relative;
-  width: 100%;
-  height: 100%;
   background: #191c29 !important; /* Fond opaque */
   border-radius: 10px;
   padding: 2px; /* Espace pour que la bordure soit visible */
