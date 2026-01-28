@@ -39,7 +39,7 @@ h1, h2, h3 {
 
 header {
   max-width: 100%;
-  min-height: 40px;
+  min-height: 60px;
   background: rgba(0, 0, 0, 0.50);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -172,6 +172,22 @@ h3 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.gradient-1-bar {
+  background: var(--gradient-1) !important;
+}
+
+.gradient-1-hover:hover {
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+
+.text-gradient-1 {
+  color: var(--gradient-1)
 }
 
 @keyframes fadeIn {
