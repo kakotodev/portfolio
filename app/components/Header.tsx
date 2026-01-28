@@ -50,7 +50,7 @@ export default function Header() {
     ]
 
     return(
-        <header className={`fixed justify-center top-0 left-0 w-full h-full z-100 items-center ${isOpen ? 'max-h-[500px]' : 'max-h-[60px]'}`}>
+        <header className={`fixed justify-center top-0 left-0 w-full h-full z-100 items-center ${isOpen ? 'max-h-[180px]' : 'max-h-[40px]'} lg:h-[60px]`}>
 
             <div className="hidden lg:flex justify-between mx-20 h-full items-center">
                 <div>
@@ -94,12 +94,12 @@ export default function Header() {
                     {isOpen && (
                         <nav >
                             {HeaderNav.map((nav) => (
-                            <Link key={nav.id} onClick={() => {setIsOpen(!isOpen)}} href={nav.href} className="flex items-center text-[14px] lg:text-[16px] hover:text-gradient-1">
-                                {nav.icons === "House" && <House className="w-[20px] h-[20px] lg:w-[25px] lg:h-[25px]"/>}
-                                {nav.icons === "Person" && <Person className="w-[20px] h-[20px] lg:w-[25px] lg:h-[25px]"/>}
-                                {nav.icons === "Code" && <Code className="w-[20px] h-[20px] lg:w-[25px] lg:h-[25px]"/>}
-                                {nav.icons === "Rocket" && <Rocket className="w-[20px] h-[20px] lg:w-[25px] lg:h-[25px]"/>}
-                                {nav.icons === "EnvelopeOpen" && <EnvelopeOpen className="w-[20px] h-[20px] lg:w-[25px] lg:h-[25px]"/>}
+                            <Link key={nav.id} onClick={() => {setIsOpen(!isOpen)}} href={nav.href} className="flex mt-1 justify-center items-center text-[14px] lg:text-[16px] hover:text-gradient-1">
+                                {nav.icons === "House" && <House className="w-[20px] h-[20px]"/>}
+                                {nav.icons === "Person" && <Person className="w-[20px] h-[20px]"/>}
+                                {nav.icons === "Code" && <Code className="w-[20px] h-[20px]"/>}
+                                {nav.icons === "Rocket" && <Rocket className="w-[20px] h-[20px]"/>}
+                                {nav.icons === "EnvelopeOpen" && <EnvelopeOpen className="w-[20px] h-[20px]"/>}
                                 <span>{nav.name}</span>
                             </Link>
                         ))} 
