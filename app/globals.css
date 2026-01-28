@@ -190,6 +190,86 @@ h3 {
   color: var(--gradient-1)
 }
 
+/* 1. Déclaration de l'angle */
+@property --rotate {
+  syntax: "<angle>";
+  initial-value: 132deg;
+  inherits: false;
+}
+
+/* 2. Le Conteneur Principal (C'est lui qui penche) */
+.skill-card-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* L'inclinaison est appliquée ici sur tout le bloc */
+  transform: rotate(-3deg);
+  transition: transform 0.3s ease;
+  z-index: 1; /* Important pour rester au-dessus des particules */
+}
+
+.skill-card-container:hover {
+  transform: rotate(0deg) scale(1.02); /* Se redresse au survol */
+}
+
+/* 3. La Carte Opaque (Le contenu intérieur) */
+.skill-card-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #191c29 !important; /* Fond opaque */
+  border-radius: 10px;
+  padding: 2px; /* Espace pour que la bordure soit visible */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2; /* Reste au-dessus de sa propre bordure */
+  /* Cette astuce permet de voir la bordure */
+  background-clip: padding-box; 
+  border: solid 2px transparent; 
+}
+
+/* 4. La Bordure qui Tourne (Attachée au conteneur) */
+.skill-card-container::before {
+  content: "";
+  position: absolute;
+  z-index: -1; /* Derrière le contenu opaque */
+  inset: -2px; /* Colle parfaitement aux bords, en dépassant de 2px */
+  border-radius: 12px; /* Un peu plus arrondi que le contenu */
+  padding: 2px; /* Épaisseur de la bordure */
+  background-image: linear-gradient(
+    var(--rotate)
+    , #5ddcff, #3c67e3 43%, #4e00c2);
+  -webkit-mask: 
+     linear-gradient(#fff 0 0) content-box, 
+     linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: spin-colors 10s linear infinite;
+}
+
+/* 5. Le Halo Lumineux (Optionnel) */
+.skill-card-container::after {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  transform: scale(0.85);
+  filter: blur(40px);
+  background-image: linear-gradient(
+    var(--rotate)
+    , #5ddcff, #3c67e3 43%, #4e00c2);
+  opacity: 0.5;
+  animation: spin-colors 20s linear infinite;
+}
+
+@keyframes spin-colors {
+  from { --rotate: 0deg; }
+  to { --rotate: 360deg; }
+}
+
+
 @keyframes fadeIn {
   from {
     opacity: 0;

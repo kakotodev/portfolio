@@ -22,10 +22,13 @@ export default function Background() {
     <Particles
       id="tsparticles"
       options={{
-        /* Copie tes réglages ici (adaptés pour TypeScript) */
+        fullScreen: {
+          enable: true,
+          zIndex: -10 // Cela force les particules DERRIÈRE tout ton contenu
+        },
         fpsLimit: 120,
         particles: {
-          number: { value: 100, density: { enable: true, area: 1000 } },
+          number: { value: 100, density: { enable: true, width: 1000, height: 1000} },
           color: { value: ["#aa73ff", "#f8c210", "#83d238", "#33b1f8"] },
           shape: { type: "circle" },
           opacity: { value: 0.6 },
