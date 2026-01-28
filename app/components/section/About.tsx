@@ -52,8 +52,8 @@ export default function About() {
 
     return(
         <>
-        <section>
-            <div id="about" className="mt-50">
+        <section id="about">
+            <div className="mt-50 ">
                 <div>
                     <div className="block lg:flex justify-center lg:gap-10 lg:text-left lg:mx-80">
                         <div className="w-[310px] mx-5 lg:mx-0 lg:w-[400px]">

@@ -21,7 +21,7 @@ export default function SkillCard() {
                         <div className="flex justify-center flex-wrap gap-5 h-64 w-[300px] h-[350px] mx-6 my-3 lg:mx-10 lg:my-8">
                             {listSkills.map((skill) => (
                                 skill.urlImg ? (
-                                    <div key={skill.id} className="flex relative group justify-center lg:hover:grayscale-0 mx-5 my-3 grayscale-0 lg:grayscale transition-all">
+                                    <div key={skill.id} className="flex relative group justify-center lg:hover:grayscale-0 z-0 mx-5 my-3 grayscale-0 lg:grayscale transition-all">
                                         <Image src={skill.urlImg} alt="skill" width={40} height={40} className="h-[40px]"/>
                                         <span className="absolute lg:scale-0 transition-all rounded lg:group-hover:scale-100 top-10 lg:-top-10 shadow-xl">
                                             {skill.name}
