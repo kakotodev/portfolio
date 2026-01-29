@@ -95,7 +95,7 @@ export default function Hero() {
                     </div>
                     <div >
                         <h1>
-                            <span className="gradient-1">Développeur full stack</span>
+                            <span className="gradient-1 font-[600]">Développeur full stack</span>
                         </h1>
                     </div>
                     <div className="flex gap-5 justify-center mt-5 lg:justify-start ">

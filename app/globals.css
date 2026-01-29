@@ -203,25 +203,23 @@ h3 {
   /* L'inclinaison est appliquée ici sur tout le bloc */
   transform: rotate(-3deg);
   transition: transform 0.3s ease;
-  z-index: 1; /* Important pour rester au-dessus des particules */
+  z-index: 1; 
 }
 
 .skill-card-container:hover {
-  transform: rotate(0deg) scale(1.02); /* Se redresse au survol */
+  transform: rotate(0deg) scale(1.02); 
 }
 
-/* 3. La Carte Opaque (Le contenu intérieur) */
 .skill-card-content {
   position: relative;
-  background: #191c29 !important; /* Fond opaque */
+  background: #191c29 !important;
   border-radius: 10px;
-  padding: 2px; /* Espace pour que la bordure soit visible */
+  padding: 2px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  z-index: 2; /* Reste au-dessus de sa propre bordure */
-  /* Cette astuce permet de voir la bordure */
+  z-index: 2; 
   background-clip: padding-box; 
   border: solid 2px transparent; 
 }
@@ -259,6 +257,48 @@ h3 {
   opacity: 0.5;
   animation: spin-colors 20s linear infinite;
 }
+
+.about-container {
+  position: relative;
+}
+
+.about-container::after {
+  content: "";
+  inset: 0;
+  position: absolute;
+  filter: blur(20px);
+  z-index: -2;
+  background-image: linear-gradient(
+    var(--rotate)
+    , #5ddcff, #3c67e3 43%, #4e00c2);
+  opacity: 0.5;
+  animation: spin-colors 20s linear infinite;
+}
+
+.about-content {
+  position: relative;
+  background: #191c29 !important;
+  border-radius: 10px;
+  padding: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  z-index: 1;
+  background-clip: padding-box; 
+  border: solid 2px transparent;
+}
+
+.about-content::after {
+    content: "";
+  inset: 0;
+  position: absolute;
+  filter: blur(20px);
+  z-index: -2;
+  opacity: 0.5;
+  animation: spin-colors 20s linear infinite;
+}
+
 
 @keyframes spin-colors {
   from { --rotate: 0deg; }
