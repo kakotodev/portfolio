@@ -16,7 +16,9 @@ export default function SkillCard() {
         <>
             {Object.entries(skillsPerCategory). map(([nameCategory, listSkills]) =>(
                 <div key={nameCategory} className="my-5">
-                    <h2>{nameCategory}</h2>
+                    <div className="font-[600px]">
+                        <h2>{nameCategory}</h2>
+                    </div>
                     <div className="skill-card-container">
                         <div className="flex justify-center skill-card-content">
                             <div className="flex justify-center flex-wrap gap-5 h-64 w-[300px] h-[350px] mx-6 my-3 lg:mx-10 lg:my-8">

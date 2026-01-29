@@ -32,6 +32,10 @@ body {
   width: 100%;
 }
 
+main {
+  height: 100vh;
+}
+
 h1, h2, h3 {
   font-family: var(--font-space), ui-monospace, sans-serif !important;
   margin: 0;

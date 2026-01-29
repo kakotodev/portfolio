@@ -35,37 +35,39 @@ export default function Contact() {
                     <h2>Me contacter</h2>
                 </div>
                 <div className="flex justify-center align-center">
-                    <div className="w-full max-w-[600px] h-auto border mx-auto">
-                        <form ref={form} onSubmit={sendEmail} className="flex flex-col gap-6 p-5">
-                            <div className="flex flex-col md:flex-row gap-4 w-full">
-                                <div className="flex flex-col gap-1 w-full">
-                                    <Label htmlFor="name">Name</Label>
-                                    <Input fullWidth id="name" placeholder="Enter your name" type="text" name="user_name" required className="w-full"/>
+                    <div className="w-full max-w-[600px] h-auto border mx-auto about-container">
+                        <div className="h-full about-content">
+                            <form ref={form} onSubmit={sendEmail} className="flex flex-col gap-6 p-5">
+                                <div className="flex flex-col md:flex-row gap-4 w-full">
+                                    <div className="flex flex-col gap-1 w-full">
+                                        <Label htmlFor="name">Name</Label>
+                                        <Input fullWidth id="name" placeholder="Enter your name" type="text" name="user_name" required className="w-full"/>
+                                    </div>
+                                    
+                                    <TextField className="w-full" name="user_email" type="email">
+                                        <Label>Email</Label>
+                                        <Input placeholder="Enter your email" required className="w-full"/>
+                                    </TextField>
                                 </div>
-                                
-                                <TextField className="w-full" name="user_email" type="email">
-                                    <Label>Email</Label>
-                                    <Input placeholder="Enter your email" required className="w-full"/>
-                                </TextField>
-                            </div>
-                            <div className="w-full">
-                                <div className="flex flex-col gap-1">
-                                    <Label htmlFor="object">Objet</Label>
-                                    <Input fullWidth name="object" id="object" placeholder="Rentrer votre objet" type="text" required className="w-full"/>
+                                <div className="w-full">
+                                    <div className="flex flex-col gap-1">
+                                        <Label htmlFor="object">Objet</Label>
+                                        <Input fullWidth name="object" id="object" placeholder="Rentrer votre objet" type="text" required className="w-full"/>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="w-full">
-                                <div className="flex flex-col gap-1">
-                                    <label htmlFor="message">Message</label>
-                                    <TextArea className="w-full min-h-[150px]" name="message" id="message" placeholder="Rentrer votre message" required/>
+                                <div className="w-full">
+                                    <div className="flex flex-col gap-1">
+                                        <label htmlFor="message">Message</label>
+                                        <TextArea className="w-full min-h-[150px]" name="message" id="message" placeholder="Rentrer votre message" required/>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="flex justify-end">
-                                <div className="form-style w-full md:w-[80px]">
-                                    <input type="submit" value="Envoyer" className="w-full cursor-pointer"/>
+                                <div className="flex justify-end">
+                                    <div className="form-style w-full md:w-[80px]">
+                                        <input type="submit" value="Envoyer" className="w-full cursor-pointer"/>
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </section>

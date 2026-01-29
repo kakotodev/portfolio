@@ -24,7 +24,7 @@ export default function Background() {
       options={{
         fullScreen: {
           enable: true,
-          zIndex: -10 // Cela force les particules DERRIÈRE tout ton contenu
+          zIndex: -10
         },
         fpsLimit: 120,
         particles: {
@@ -45,7 +45,7 @@ export default function Background() {
         interactivity: {
           events: {
             onHover: { enable: true, mode: "grab" },
-            resize: { enable: true }, // Remplace l'ancien "resize" booléen
+            resize: { enable: true }, 
           },
           modes: {
             grab: { distance: 140, links: { opacity: 1 } },
