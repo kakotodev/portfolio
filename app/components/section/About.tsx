@@ -70,7 +70,7 @@ export default function About() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="flex justify-center text-[23px] mt-10 mx-5 lg:mx-40 mb-10">
+                            <div className="flex justify-center text-[23px] mt-10 mx-5 lg:mx-40 mb-10 italic">
                                 <div className="lg:w-[800px]">
                                     <p>Salut ! Je suis Lam et j&apos;ai 19 ans, actuellement Etudiant à l&apos;Efrei dans le IT. J&apos;apprends le développement web via des projets que j&apos;ai effectué sur mon <span>Github.</span></p><br />
                                     <p>Pendant mes temps libres je pratique de la musculation et je joue à des Jeux Rythm ! Mais ce que je prefere par dessus c&apos;est de lire la docs et debugger mon code.</p><br />
