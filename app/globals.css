@@ -4,7 +4,7 @@
 
 
 :root {
-  --background: #ffffff;
+  --background: #171717;
   --foreground: #171717;
   --gradient-1: linear-gradient(135deg, #c084fc 0%, #a78bfa 50%, #67e8f9 100%);
   --gradient-2: linear-gradient(135deg, #67e8f9 0%, #a78bfa 50%, #fbbf24 100%);
@@ -12,14 +12,12 @@
 }
 
 @theme {
-  --color-background: var(--background);
   --color-foreground: var(--foreground);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #ededed;
   }
 }
 
@@ -38,7 +36,9 @@ main {
   min-height: 100vh;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: var(--font-space), ui-monospace, sans-serif !important;
   margin: 0;
 }
@@ -66,7 +66,7 @@ h1 {
 }
 
 h2 {
-  font-size: 2.8125rem;  
+  font-size: 2.8125rem;
 }
 
 h3 {
@@ -81,7 +81,8 @@ h3 {
   }
 
   h1 {
-    font-size: 3.75rem; /* Réduction pour éviter que le titre prenne 3 lignes */
+    font-size: 3.75rem;
+    /* Réduction pour éviter que le titre prenne 3 lignes */
   }
 
   h2 {
@@ -98,7 +99,7 @@ h3 {
     /* Marges très réduites pour le mobile */
     margin-top: 60px;
     margin-bottom: 60px;
-    
+
     /* IMPORTANT : Ajout de padding sur les côtés pour que le texte 
        ne colle pas aux bords de l'écran du téléphone */
     padding-left: 20px;
@@ -106,8 +107,10 @@ h3 {
   }
 
   h1 {
-    font-size: 2.1875rem; /* Taille standard pour un gros titre mobile */
-    line-height: 1.1; /* Resserre un peu l'interligne */
+    font-size: 2.1875rem;
+    /* Taille standard pour un gros titre mobile */
+    line-height: 1.1;
+    /* Resserre un peu l'interligne */
   }
 
   h2 {
@@ -119,7 +122,7 @@ h3 {
   }
 
   p {
-    font-size : .9375rem
+    font-size: .9375rem
   }
 }
 
@@ -209,11 +212,11 @@ h3 {
   /* L'inclinaison est appliquée ici sur tout le bloc */
   transform: rotate(-3deg);
   transition: transform 0.3s ease;
-  z-index: 1; 
+  z-index: 1;
 }
 
 .skill-card-container:hover {
-  transform: rotate(0deg) scale(1.02); 
+  transform: rotate(0deg) scale(1.02);
 }
 
 .skill-card-content {
@@ -225,25 +228,27 @@ h3 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  z-index: 2; 
-  background-clip: padding-box; 
-  border: solid 2px transparent; 
+  z-index: 2;
+  background-clip: padding-box;
+  border: solid 2px transparent;
 }
 
 /* 4. La Bordure qui Tourne (Attachée au conteneur) */
 .skill-card-container::before {
   content: "";
   position: absolute;
-  z-index: -1; /* Derrière le contenu opaque */
-  inset: -2px; /* Colle parfaitement aux bords, en dépassant de 2px */
-  border-radius: 12px; /* Un peu plus arrondi que le contenu */
-  padding: 2px; /* Épaisseur de la bordure */
-  background-image: linear-gradient(
-    var(--rotate)
-    , #5ddcff, #3c67e3 43%, #4e00c2);
-  -webkit-mask: 
-     linear-gradient(#fff 0 0) content-box, 
-     linear-gradient(#fff 0 0);
+  z-index: -1;
+  /* Derrière le contenu opaque */
+  inset: -2px;
+  /* Colle parfaitement aux bords, en dépassant de 2px */
+  border-radius: 12px;
+  /* Un peu plus arrondi que le contenu */
+  padding: 2px;
+  /* Épaisseur de la bordure */
+  background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   animation: spin-colors 10s linear infinite;
@@ -257,9 +262,7 @@ h3 {
   inset: 0;
   transform: scale(0.85);
   filter: blur(40px);
-  background-image: linear-gradient(
-    var(--rotate)
-    , #5ddcff, #3c67e3 43%, #4e00c2);
+  background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2);
   opacity: 0.5;
   animation: spin-colors 20s linear infinite;
 }
@@ -274,9 +277,7 @@ h3 {
   position: absolute;
   filter: blur(20px);
   z-index: -2;
-  background-image: linear-gradient(
-    var(--rotate)
-    , #5ddcff, #3c67e3 43%, #4e00c2);
+  background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2);
   opacity: 0.5;
   animation: spin-colors 20s linear infinite;
 }
@@ -289,14 +290,14 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
   z-index: 1;
-  background-clip: padding-box; 
+  background-clip: padding-box;
   border: solid 2px transparent;
 }
 
 .about-content::after {
-    content: "";
+  content: "";
   inset: 0;
   position: absolute;
   filter: blur(20px);
@@ -307,8 +308,13 @@ h3 {
 
 
 @keyframes spin-colors {
-  from { --rotate: 0deg; }
-  to { --rotate: 360deg; }
+  from {
+    --rotate: 0deg;
+  }
+
+  to {
+    --rotate: 360deg;
+  }
 }
 
 
@@ -316,14 +322,22 @@ h3 {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
 
 .loader {
@@ -334,8 +348,8 @@ h3 {
   background-color: #111;
   display: flex;
   justify-content: center;
-  align-items: center; 
-  z-index: 10000 !important; 
+  align-items: center;
+  z-index: 10000 !important;
 }
 
 /* Le conteneur qui regroupe le texte + le perso */
@@ -344,119 +358,167 @@ h3 {
   flex-direction: column;
   align-items: center;
   /* Augmente cette valeur (ex: -150px) pour monter encore plus */
-  transform: translateY(-100px); 
+  transform: translateY(-100px);
 }
 
-.load {  
-  position: relative; /* Change de absolute à relative */
-  width: auto; 
+.load {
+  position: relative;
+  /* Change de absolute à relative */
+  width: auto;
   height: 32px;
   text-align: center;
-  margin-bottom: 20px; /* Espace sous le texte */
+  margin-bottom: 20px;
+  /* Espace sous le texte */
   font-family: 'Julius Sans One', sans-serif;
   font-size: 28px;
-  color: rgba(240,220,220,1);
+  color: rgba(240, 220, 220, 1);
   overflow: hidden;
   white-space: nowrap;
   animation: fontAnim 3.75s infinite ease-out;
 }
 
-.eye{
-  width: 20px; height: 8px;
-  background-color: rgba(240,220,220,1);
-  border-radius:0px 0px 20px 20px;
+.eye {
+  width: 20px;
+  height: 8px;
+  background-color: rgba(240, 220, 220, 1);
+  border-radius: 0px 0px 20px 20px;
   position: relative;
-  left: 10px; top: 40px;
-  box-shadow:  40px 0px 0px 0px rgba(240,220,220,1);              
+  left: 10px;
+  top: 40px;
+  box-shadow: 40px 0px 0px 0px rgba(240, 220, 220, 1);
 }
 
-.head{
+.head {
   -webkit-backface-visibility: hidden;
   position: relative;
   margin: -250px auto;
-  width: 80px; height: 80px;
+  width: 80px;
+  height: 80px;
   background-color: #111;
-  border-radius:50px;
-  box-shadow: inset -4px 2px 0px 0px rgba(240,220,220,1);
-  -webkit-animation:headAnim 1.5s infinite alternate;
-  -webkit-animation-timing-function:ease-out;
+  border-radius: 50px;
+  box-shadow: inset -4px 2px 0px 0px rgba(240, 220, 220, 1);
+  -webkit-animation: headAnim 1.5s infinite alternate;
+  -webkit-animation-timing-function: ease-out;
 }
 
-.body{ 
+.body {
   position: relative;
   margin: 90px auto;
-  width: 140px; height: 120px;
+  width: 140px;
+  height: 120px;
   background-color: #111;
-  border-radius: 50px/25px ;
-  box-shadow: inset -5px 2px 0px 0px rgba(240,220,220,1);
-  -webkit-animation:bodyAnim 1.5s infinite alternate;
-  -webkit-animation-timing-function:ease-out;  
+  border-radius: 50px/25px;
+  box-shadow: inset -5px 2px 0px 0px rgba(240, 220, 220, 1);
+  -webkit-animation: bodyAnim 1.5s infinite alternate;
+  -webkit-animation-timing-function: ease-out;
 }
 
-  @-webkit-keyframes headAnim{
-         0%{ top:0px; }
-         50%{ top:10px; }
-         100% { top:0px;} 
+@-webkit-keyframes headAnim {
+  0% {
+    top: 0px;
   }
 
-  @-webkit-keyframes bodyAnim{
-         0%{ top:-5px; }
-         50%{ top:10px; }
-         100% { top:-5px;} 
+  50% {
+    top: 10px;
   }
 
-.circ{
+  100% {
+    top: 0px;
+  }
+}
+
+@-webkit-keyframes bodyAnim {
+  0% {
+    top: -5px;
+  }
+
+  50% {
+    top: 10px;
+  }
+
+  100% {
+    top: -5px;
+  }
+}
+
+.circ {
   -webkit-backface-visibility: hidden;
   margin: 60px auto;
-  width: 180px; height: 180px;
+  width: 180px;
+  height: 180px;
   background-color: #111;
   border-radius: 0px 0px 50px 50px;
   position: relative;
-  z-index: -1;  
-  left: 0%; top: 20%;
+  z-index: -1;
+  left: 0%;
+  top: 20%;
   overflow: hidden;
 }
 
-.hands{
+.hands {
   -webkit-backface-visibility: hidden;
   margin-top: 140px;
-  width: 120px;height: 120px;
+  width: 120px;
+  height: 120px;
   position: absolute;
   background-color: #111;
-  border-radius:20px;
-  box-shadow:-1px -4px 0px 0px rgba(240,220,220,1);
-  -webkit-transform:rotate(45deg);
-  top:75%;left: 16%;
+  border-radius: 20px;
+  box-shadow: -1px -4px 0px 0px rgba(240, 220, 220, 1);
+  -webkit-transform: rotate(45deg);
+  top: 75%;
+  left: 16%;
   z-index: 1;
-  -webkit-animation:bodyAnim 1.5s infinite alternate;
-  -webkit-animation-timing-function:ease-out;
+  -webkit-animation: bodyAnim 1.5s infinite alternate;
+  -webkit-animation-timing-function: ease-out;
 }
 
-.load{  
+.load {
   position: absolute;
-  width: 7ch; height: 32px;
+  width: 7ch;
+  height: 32px;
   text-align: left;
   line-height: 32px;
   margin: -10px auto;
   -webkit-font-smoothing: antialiased;
   font-family: 'Julius Sans One', sans-serif;
-  font-size:28px;
-  font-weight:400;
-  color:rgba(240,220,220,1);
-  left: 2%; top: 5%;
-  -webkit-animation:fontAnim 3.75s infinite;
-  -webkit-animation-timing-function:ease-out;
+  font-size: 28px;
+  font-weight: 400;
+  color: rgba(240, 220, 220, 1);
+  left: 2%;
+  top: 5%;
+  -webkit-animation: fontAnim 3.75s infinite;
+  -webkit-animation-timing-function: ease-out;
   word-wrap: break-word;
-  display:block;
+  display: block;
   overflow: hidden;
 }
 
-  @-webkit-keyframes fontAnim{
-        0%{ width:7ch; }
-       16%{ width:8ch; }
-       32%{ width:9ch; }
-       48%{ width:10ch; }
-       64%{ width:11ch; }
-       80%{ width:12ch; }
-     100% { width:13ch;} 
+@-webkit-keyframes fontAnim {
+  0% {
+    width: 7ch;
   }
+
+  16% {
+    width: 8ch;
+  }
+
+  32% {
+    width: 9ch;
+  }
+
+  48% {
+    width: 10ch;
+  }
+
+  64% {
+    width: 11ch;
+  }
+
+  80% {
+    width: 12ch;
+  }
+
+  100% {
+    width: 13ch;
+  }
+}
