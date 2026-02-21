@@ -1,13 +1,14 @@
 "use client"
 
-import {useState, useEffect} from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@heroui/react";
 import Link from "next/link";
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { monokai } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
-import {Rocket} from '@gravity-ui/icons';
-import {EnvelopeOpen} from '@gravity-ui/icons';
+import { Rocket } from '@gravity-ui/icons';
+import { EnvelopeOpen } from '@gravity-ui/icons';
+import { motion } from 'motion/react';
 
 export default function Hero() {
 
@@ -25,7 +26,7 @@ export default function Hero() {
         passion: "Créer des interfaces fluides et performantes",
         available: true,
         contact: () => {
-            return "email@exemple.com";
+            return "vinhlam.le29@gmail.com";
             }
         };
 
@@ -40,7 +41,7 @@ export default function Hero() {
         delay?: number;
     }
 
-        const Typerwritter = ({ text, delay = 100 }: TypewriterProps) => {
+    const Typerwritter = ({ text, delay = 100 }: TypewriterProps) => {
         const [currentText, setCurrentText] = useState('');
         const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -78,42 +79,53 @@ export default function Hero() {
         window.history.pushState(null, '', `#${targetId}`);
     }
 
-    return(
+    return (
         <>
-        <section id="hero">
-            <div className="block mx-0 lg:mx-20 lg:flex lg:gap-15">
-                <div id="Intro" className="block max-w-[1000px] text-center lg:text-left">
-                    <div className="text-[20px]">
-                        <h3>
-                            <span>Bonjour, je suis</span>
-                        </h3>
-                    </div>
-                    <div>
-                        <h2 className="gradient-1">
-                            <Typerwritter text={"Vinh-Lam LE"}></Typerwritter>
-                        </h2>
-                    </div>
-                    <div >
-                        <h1>
-                            <span className="gradient-1 font-[600]">Développeur full stack</span>
-                        </h1>
-                    </div>
-                    <div className="flex gap-5 justify-center mt-5 lg:justify-start ">
-                        <Link href="#projects" scroll={false} onClick={(e) => handleScroll(e, "projects")}>
-                            <Button><Rocket></Rocket>Voir mes projets</Button>
-                        </Link>
-                        <Link href="#contact" scroll={false} onClick={(e) => handleScroll(e, "contact")}>
-                            <Button className="text-black"variant="tertiary"><EnvelopeOpen></EnvelopeOpen>Me contacter</Button>
-                        </Link>
-                    </div>
+            <section id="hero">
+                <div className="block mx-0 lg:mx-20 lg:flex lg:gap-15">
+                    <motion.div
+                        id="Intro"
+                        className="block max-w-[1000px] text-center lg:text-left"
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                    >
+                        <div className="text-[20px]">
+                            <h3>
+                                <span>Bonjour, je suis</span>
+                            </h3>
+                        </div>
+                        <div>
+                            <h2 className="gradient-1">
+                                <Typerwritter text={"Vinh-Lam LE"}></Typerwritter>
+                            </h2>
+                        </div>
+                        <div >
+                            <h1>
+                                <span className="gradient-1 font-[600]">Développeur full stack</span>
+                            </h1>
+                        </div>
+                        <div className="flex gap-5 justify-center mt-5 lg:justify-start ">
+                            <Link href="#projects" scroll={false} onClick={(e) => handleScroll(e, "projects")}>
+                                <Button><Rocket></Rocket>Voir mes projets</Button>
+                            </Link>
+                            <Link href="#contact" scroll={false} onClick={(e) => handleScroll(e, "contact")}>
+                                <Button className="text-black" variant="tertiary"><EnvelopeOpen></EnvelopeOpen>Me contacter</Button>
+                            </Link>
+                        </div>
+                    </motion.div>
+                    <motion.div
+                        className=""
+                        initial={{ opacity: 0, x: 30 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                    >
+                        <SyntaxHighlighter language="typescript" style={monokai} className="rounded-lg p-5 mt-10 text-[9px] lg:text-[19px] lg:mt-0">
+                            {codeString}
+                        </SyntaxHighlighter>
+                    </motion.div>
                 </div>
-                <div className="">
-                    <SyntaxHighlighter language="typescript" style={monokai} className="rounded-lg p-5 mt-10 text-[9px] lg:text-[19px] lg:mt-0">
-                        {codeString}
-                    </SyntaxHighlighter>
-                </div>
-            </div>
-      </section>
-    </>
+            </section>
+        </>
     )
 }

@@ -1,5 +1,8 @@
+"use client";
+
 import { listSkills } from "@/app/data/data-skills";
 import { Skill } from "@/app/data/data-skills";
+import { motion, Variants } from "motion/react";
 
 export default function SkillCard() {
 
@@ -11,32 +14,86 @@ export default function SkillCard() {
         return acc;
     }, {} as Record<string, Skill[]>);
 
-    return(
-        <>
-            {Object.entries(skillsPerCategory). map(([nameCategory, listSkills]) =>(
-                <div key={nameCategory} className="my-5">
-                    <div className="font-[600px]">
-                        <h2>{nameCategory}</h2>
+    // Variants pour la liste de catégories
+    const containerVariants: Variants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.2, // Délai entre chaque catégorie
+            },
+        },
+    };
+
+    // Variants pour une catégorie
+    const categoryVariants: Variants = {
+        hidden: { opacity: 0, y: 30 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.5,
+                ease: "easeOut",
+                staggerChildren: 0.1, // Délai interne entre les icônes de la catégorie
+            },
+        },
+    };
+
+    // Variants pour une icône de compétence (effet léger de scale/pop)
+    const iconVariants: Variants = {
+        hidden: { opacity: 0, scale: 0.8 },
+        visible: {
+            opacity: 1,
+            scale: 1,
+            transition: { type: "spring", stiffness: 120, damping: 12 }
+        },
+    };
+
+    return (
+        <motion.div
+            className="flex flex-col lg:flex-row flex-wrap justify-center gap-6 lg:gap-8 w-full max-w-6xl"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={containerVariants}
+        >
+            {Object.entries(skillsPerCategory).map(([nameCategory, listSkills]) => (
+                <motion.div
+                    key={nameCategory}
+                    variants={categoryVariants}
+                    className="flex flex-col flex-1 min-w-[280px] max-w-full lg:max-w-md bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 shadow-xl"
+                >
+                    <div className="mb-6">
+                        <h3 className="text-xl font-semibold tracking-wide text-transparent bg-clip-text gradient-1">{nameCategory}</h3>
                     </div>
-                    <div className="skill-card-container">
-                        <div className="flex justify-center skill-card-content">
-                            <div className="flex justify-center flex-wrap gap-5 h-64 w-[300px] h-[350px] mx-6 my-3 lg:mx-10 lg:my-8">
-                                {listSkills.map((skill) => (
-                                    skill.urlImg ? (
-                                        <div key={skill.id} className="flex relative group justify-center lg:hover:grayscale-0 z-0 mx-5 my-3 grayscale-0 lg:grayscale transition-all">
-                                            <img src={skill.urlImg} alt="skill" width={40} height={40} className="h-[40px]"/>
-                                            <span className="absolute lg:scale-0 transition-all rounded lg:group-hover:scale-100 top-10 lg:-top-10 shadow-xl">
-                                                {skill.name}
-                                                <span className="hidden lg:block absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-800"></span>
-                                            </span>
-                                        </div>
-                                    ) : null
-                                ))}
-                            </div>
-                        </div>
+
+                    <div className="flex flex-wrap justify-center gap-4 lg:gap-6 items-center flex-grow">
+                        {listSkills.map((skill) => (
+                            skill.urlImg ? (
+                                <motion.div
+                                    key={skill.id}
+                                    variants={iconVariants}
+                                    className="relative flex justify-center group"
+                                >
+                                    <div className="w-12 h-12 lg:w-14 lg:h-14 bg-white/10 rounded-xl flex items-center justify-center p-2 transition-transform duration-300 transform group-hover:-translate-y-2 group-hover:bg-white/20">
+                                        <img
+                                            src={skill.urlImg}
+                                            alt={skill.name}
+                                            className="max-w-full max-h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                                        />
+                                    </div>
+
+                                    {/* Tooltip au Hover */}
+                                    <span className="absolute -top-10 scale-0 transition-transform duration-200 ease-out origin-bottom rounded bg-gray-900 text-white text-xs font-medium py-1 px-2 group-hover:scale-100 shadow-xl whitespace-nowrap z-10 pointer-events-none">
+                                        {skill.name}
+                                        <span className="absolute top-full left-1/2 -translate-x-1/2 border-[5px] border-transparent border-t-gray-900"></span>
+                                    </span>
+                                </motion.div>
+                            ) : null
+                        ))}
                     </div>
-                </div>
+                </motion.div>
             ))}
-        </>
-    )
+        </motion.div>
+    );
 }
