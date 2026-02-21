@@ -2,6 +2,8 @@ import SkillCard from "../card/SkillCard";
 import { motion } from "motion/react";
 
 export default function Skills() {
+
+
     return (
         <section id="skills" className="w-full mt-32 overflow-hidden">
             <motion.div
