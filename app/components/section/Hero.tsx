@@ -105,12 +105,21 @@ export default function Hero() {
                                 <span className="gradient-1 font-[600]">Développeur full stack</span>
                             </h1>
                         </div>
-                        <div className="flex gap-5 justify-center mt-5 lg:justify-start ">
-                            <Link href="#projects" scroll={false} onClick={(e) => handleScroll(e, "projects")}>
-                                <Button><Rocket></Rocket>Voir mes projets</Button>
+                        <div className="flex flex-col sm:flex-row gap-4 lg:gap-5 justify-center mt-8 lg:justify-start w-full">
+                            <Link href="#projects" scroll={false} onClick={(e) => handleScroll(e, "projects")} className="w-full sm:w-auto">
+                                <Button className="w-full bg-white text-black font-semibold tracking-wide hover:scale-105 transition-transform duration-300 px-8 py-6 rounded-full shadow-[0_0_20px_rgba(255,255,255,0.3)] text-base">
+                                    <Rocket className="mr-2 w-5 h-5" />
+                                    Voir mes projets
+                                </Button>
                             </Link>
-                            <Link href="#contact" scroll={false} onClick={(e) => handleScroll(e, "contact")}>
-                                <Button className="text-black" variant="tertiary"><EnvelopeOpen></EnvelopeOpen>Me contacter</Button>
+
+                            <Link href="#contact" scroll={false} onClick={(e) => handleScroll(e, "contact")} className="w-full sm:w-auto">
+                                <Button
+                                    className="w-full bg-white/5 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wide hover:bg-white/10 hover:border-white/40 transition-all duration-300 px-8 py-6 rounded-full text-base"
+                                >
+                                    <EnvelopeOpen className="mr-2 w-5 h-5" />
+                                    Me contacter
+                                </Button>
                             </Link>
                         </div>
                     </motion.div>
