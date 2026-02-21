@@ -1,6 +1,7 @@
 import SkillCard from "../card/SkillCard";
 import { motion } from "motion/react";
 
+
 export default function Skills() {
 
 
