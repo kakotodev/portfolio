@@ -17,7 +17,8 @@ export const techColors: Record<string, string> = {
     "PostgreSQL": "border-indigo-600 bg-indigo-600/15",
     "Git": "border-orange-500 bg-orange-500/15",
     "PHP": "border-purple-600 bg-purple-600/15",
-    "Twig": "border-pink-400 bg-pink-400/15"
+    "Twig": "border-pink-400 bg-pink-400/15",
+    "TypeScript": "border-blue-500 bg-blue-500/15",
 };
 
 export const listProjects: Project[] = [
@@ -32,18 +33,26 @@ export const listProjects: Project[] = [
     {
         id: 2,
         title: "Memory",
-        description: "Pas de description pour le moment",
+        description: "Application web de jeu inspiré du jeu Memory. Application web responsive et dynamique, retrouvez plus de 10 fonctionnalités",
         technologies: ["Vue.JS", "FastAPI", "TailwindCSS", "PostgreSQL", "Git"],
-        link: "Pas de link",
+        link: "https://github.com/kakotodev/memory",
         urlImg: "/Memory.svg"
     },
     {
         id: 3,
         title: "BuyYourPC - E-Commerce",
-        description: "Pas de description pour le moment",
+        description: "Site web de vente de composants informatiques. Fonctionalités de comptes admin et utilisateur",
         technologies: ["PHP", "Twig"],
-        link: "Pas de link",
+        link: "https://github.com/kakotodev/E-Commerce-PHP",
         urlImg: "/BuyYourPC-Ecommerce.svg"
+    },
+    {
+        id: 4,
+        title: "PastJob - Extension Chrome",
+        description: "Extension Chrome d'extraction automatique d'offres d'emploi en un clic.",
+        technologies: ["TypeScript", "JavaScript", "Vue.JS"],
+        link: "https://github.com/kakotodev/PastJob",
+        urlImg: "/PastJob.svg"
     }
 ];
 

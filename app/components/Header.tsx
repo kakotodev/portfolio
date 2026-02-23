@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { House, Person, Code, Rocket, EnvelopeOpen, Bars } from '@gravity-ui/icons';
 import { useState, ReactNode } from "react";
 import { Button } from '@heroui/react';
@@ -36,20 +37,50 @@ export default function Header() {
         { id: 5, icon: <EnvelopeOpen className="w-5 h-5 lg:w-[22px] lg:h-[22px]" />, href: "/#contact", name: "Contact" },
     ];
 
-    const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, targetId: string) => {
-        // Gérer le scroll smooth si c'est une ancre sur la même page
-        const isAnchor = targetId.startsWith('#');
+    const pathname = usePathname();
+
+    const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
+        const isAnchor = href.startsWith('/#') || href.startsWith('#');
+        const id = href.replace('/#', '').replace('#', '');
+
+        // Navigation multi-pages Next.js
+        if (pathname !== '/' && pathname !== '' && isAnchor) {
+            if (isOpen) setIsOpen(false);
+            return;
+        }
+
         if (isAnchor) {
-            const id = targetId.substring(1);
-            const targetElement = document.getElementById(id);
-            if (targetElement) {
-                e.preventDefault();
-                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                window.history.pushState(null, '', targetId);
+            e.preventDefault();
+
+            const performScroll = () => {
+                if (id === 'hero') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    const targetElement = document.getElementById(id);
+                    if (targetElement) {
+                        const headerOffset = 100;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth"
+                        });
+                    }
+                }
+                window.history.pushState(null, '', `/#${id}`);
+            };
+
+            if (isOpen) {
+                // Sur mobile, ferme le menu et attend que l'animation AnimatePresence soit finie (300ms) avant de scroller. Sinon la hauteur de page saute !
                 setIsOpen(false);
+                setTimeout(performScroll, 350);
+            } else {
+                // Sur pc, scroll instantanément
+                performScroll();
             }
         } else {
-            setIsOpen(false);
+            if (isOpen) setIsOpen(false);
         }
     };
 
@@ -66,7 +97,7 @@ export default function Header() {
             {/* Desktop Navigation */}
             <div className="hidden lg:flex justify-between items-center h-[70px] max-w-[1700px] mx-auto px-10">
                 <div className="font-bold text-xl tracking-wider">
-                    <Link href="/#hero" onClick={(e) => handleScroll(e, "#hero")} className="hover:opacity-80 transition-opacity">
+                    <Link href="/#hero" onClick={(e) => handleLinkClick(e, "/#hero")} className="hover:opacity-80 transition-opacity">
                         <span className="gradient-1">By Lam</span>
                     </Link>
                 </div>
@@ -76,7 +107,7 @@ export default function Header() {
                         <Link
                             key={nav.id}
                             href={nav.href}
-                            onClick={(e) => handleScroll(e, nav.href)}
+                            onClick={(e) => handleLinkClick(e, nav.href)}
                             className="relative group flex items-center gap-2 text-gray-300 hover:text-white transition-colors duration-300"
                         >
                             <span className="text-gray-400 group-hover:text-white transition-colors duration-300">
@@ -102,7 +133,7 @@ export default function Header() {
             <div className="flex flex-col lg:hidden w-full px-5 py-4">
                 <div className="flex justify-between items-center h-[30px]">
                     <div className="font-bold text-xl tracking-wider">
-                        <Link href="/#hero" onClick={(e) => handleScroll(e, "#hero")}>
+                        <Link href="/#hero" onClick={(e) => handleLinkClick(e, "/#hero")}>
                             <span className="gradient-1 font-bold">By Lam</span>
                         </Link>
                     </div>
@@ -128,7 +159,7 @@ export default function Header() {
                                 <Link
                                     key={nav.id}
                                     href={nav.href}
-                                    onClick={(e) => handleScroll(e, nav.href)}
+                                    onClick={(e) => handleLinkClick(e, nav.href)}
                                     className="flex items-center gap-4 text-lg font-medium text-gray-300 hover:text-white hover:bg-white/5 p-3 rounded-xl transition-all"
                                 >
                                     <span className="text-gray-400">{nav.icon}</span>

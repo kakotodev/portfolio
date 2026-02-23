@@ -7,16 +7,17 @@ import Background from './components/background';
 import Loading from './components/Loading';
 
 export default function ClientWrapper({ children }: { children: React.ReactNode }) {
-  const [isLoading, setIsLoading] = useState(true);
+  // Désactivation temporaire du loader et du Modal
+  const [isLoading, setIsLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-      // On affiche le modal juste après que le loader commence à partir
-      setShowModal(true);
-    }, 2500);
-    return () => clearTimeout(timer);
+    // const timer = setTimeout(() => {
+    //   // setIsLoading(false); // Commenté car le loading est désactivé
+    //   // On affiche le modal
+    //   // setShowModal(true);
+    // }, 2500);
+    // return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -42,7 +43,7 @@ export default function ClientWrapper({ children }: { children: React.ReactNode 
         {showModal && (
           <div className="fixed inset-0 z-[110] flex items-center justify-center p-4">
             {/* L'arrière-plan qui assombrit le site */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -51,7 +52,7 @@ export default function ClientWrapper({ children }: { children: React.ReactNode 
             />
 
             {/* La boîte de dialogue (Modal) */}
-            <motion.div 
+            <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
@@ -61,7 +62,7 @@ export default function ClientWrapper({ children }: { children: React.ReactNode 
               <p className="text-zinc-600 dark:text-zinc-400 mb-6">
                 Mon portfolio est encore en cours de construction. Certaines sections peuvent être incomplètes.
               </p>
-              <button 
+              <button
                 onClick={() => setShowModal(false)}
                 className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-colors"
               >
