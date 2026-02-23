@@ -2,59 +2,63 @@ import { Project } from '../../data/data-projects';
 import { techColors } from '../../data/data-projects';
 import Image from 'next/image';
 import Link from 'next/link';
-import {Button} from "@heroui/react";
+import { Button } from "@heroui/react";
 import { Globe } from '@gravity-ui/icons';
 
-export default function ProjectCard({ listProjects }: { listProjects: Project}) {
+export default function ProjectCard({ listProjects }: { listProjects: Project }) {
+    return (
+        <div className="group flex flex-col w-full max-w-[380px] min-h-[500px] bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl overflow-hidden hover:border-white/20 transition-all duration-300 mx-auto">
 
-    return(
-        <>
-            <div className='text-center mx-7 my-5 w-[300px] h-[480px] lg:w-[400px] lg:h-[560px] about-container'>
-                <div className='bg-red-200 h-full about-content'>
-                    <div className='lg:mx-2 my-1 text-center'>
-                        <div className='flex group justify-center lg:hover:scale-105 lg:transition'>
-                            <Image src={listProjects.urlImg} alt="Apercu du site web" width={400} height={300} unoptimized className='hidden lg:block lg:group-hover:grayscale-90 lg:group-hover:brightness-50'/>
-                            <Link href={listProjects.link} target='_blank' className='hidden lg:block center absolute'>
-                                <span className='absolute opacity-0 lg:group-hover:opacity-100 lg:top-10'>
-                                    <Button className={'absolute top-10'}>
-                                        <Globe />
-                                        GitHub
-                                    </Button>
-                                </span>
-                            </Link>
-                            <Image src={listProjects.urlImg} alt="Apercu du site web" width={300} height={400} unoptimized className='block lg:hidden'/>
-                        </div>
-                            <div className='h-[50px] mt-1 lg:h-[80px]'>
-                                <h3>{listProjects.title}</h3>
-                            </div>
-                            <div className='flex justify-center'>
-                                <div className='flex flex-wrap justify-center mb-5 h-[80px] w-[350px]'>
-                                    {listProjects.technologies.map((tech, index) => {
-                                        
-                                        const colorBadgeTech = techColors[tech] || 'bg-gray-500';
-
-                                        return (
-                                            <div key={index} className={`h-[20px] px-1 pb-[25px] mx-2 border-2 rounded-full ${colorBadgeTech}`}>
-                                                <span>{tech}</span>
-                                            </div>
-                                        )
-                                    })}
-                                </div>
-                            </div>
-                            <div className='text-[18px] h-[100px] italic'>
-                                <p>{listProjects.description}</p>
-                            </div>
-                        <Link href={listProjects.link} target='_blank' className='blockl lg:hidden mb-20'>
-                            <span>
-                                <Button>
-                                    <Globe />
-                                    GitHub
-                                </Button>
-                            </span>
-                        </Link>
-                    </div>
-                </div>
+            {/* Image Section (Responsive unique avec Hover Scale) */}
+            <div className="relative w-full aspect-[4/3] overflow-hidden bg-[#0f0f11]">
+                <Image
+                    src={listProjects.urlImg}
+                    alt={`Aperçu de ${listProjects.title}`}
+                    fill
+                    unoptimized
+                    className="object-cover group-hover:scale-110 group-hover:brightness-75 transition-all duration-500 ease-out"
+                />
             </div>
-        </>
+
+            {/* Contenu Section */}
+            <div className="flex flex-col flex-grow p-6 text-center">
+
+                {/* Title */}
+                <h3 className="text-xl lg:text-2xl font-semibold mb-4 text-white">
+                    {listProjects.title}
+                </h3>
+
+                {/* Tags de technologies */}
+                <div className="flex flex-wrap justify-center gap-2 mb-4">
+                    {listProjects.technologies.map((tech, index) => {
+                        const colorBadgeTech = techColors[tech] || 'bg-gray-500/20';
+                        return (
+                            <span
+                                key={index}
+                                className={`text-[12px] font-medium px-3 py-1 rounded-full border border-white/5 ${colorBadgeTech} text-white/90 shadow-sm`}
+                            >
+                                {tech}
+                            </span>
+                        )
+                    })}
+                </div>
+
+                {/* Description */}
+                <div className="text-sm lg:text-[15px] text-gray-400 font-light leading-relaxed italic mb-8 flex-grow">
+                    <p>{listProjects.description}</p>
+                </div>
+
+                {/* Bouton Desktop + Mobile unique */}
+                <div className="mt-auto pt-4 relative w-full flex justify-center">
+                    <Link href={listProjects.link} target='_blank' className="w-full sm:w-auto">
+                        <Button className="w-full bg-white text-black hover:scale-105 transition-transform duration-300 font-semibold tracking-wide rounded-full px-8 py-6 text-sm">
+                            <Globe className="mr-2 w-4 h-4" />
+                            Voir sur GitHub
+                        </Button>
+                    </Link>
+                </div>
+
+            </div>
+        </div>
     )
 }

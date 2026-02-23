@@ -4,10 +4,22 @@ import Link from "next/link";
 import { House, Person, Code, Rocket, EnvelopeOpen, Bars } from '@gravity-ui/icons';
 import { useState, ReactNode } from "react";
 import { Button } from '@heroui/react';
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "motion/react";
 
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
+    const [hidden, setHidden] = useState(false);
+    const { scrollY } = useScroll();
+
+    useMotionValueEvent(scrollY, "change", (latest) => {
+        const previous = scrollY.getPrevious() ?? 0;
+        if (latest > previous && latest > 150) {
+            setHidden(true);
+            setIsOpen(false); // Ferme automatiquement le menu mobile en scrollant vers le bas
+        } else {
+            setHidden(false);
+        }
+    });
 
     interface NavItem {
         id: number;
@@ -42,7 +54,15 @@ export default function Header() {
     };
 
     return (
-        <header className="fixed top-0 left-0 w-full z-50 bg-[#0f0f11]/80 backdrop-blur-md border-b border-white/10 transition-all duration-300">
+        <motion.header
+            variants={{
+                visible: { y: 0 },
+                hidden: { y: "-100%" },
+            }}
+            animate={hidden ? "hidden" : "visible"}
+            transition={{ duration: 0.35, ease: "easeInOut" }}
+            className="fixed top-0 left-0 w-full z-50 bg-[#0f0f11]/80 backdrop-blur-md border-b border-white/10"
+        >
             {/* Desktop Navigation */}
             <div className="hidden lg:flex justify-between items-center h-[70px] max-w-[1700px] mx-auto px-10">
                 <div className="font-bold text-xl tracking-wider">
@@ -124,6 +144,6 @@ export default function Header() {
                     )}
                 </AnimatePresence>
             </div>
-        </header>
+        </motion.header>
     );
 }

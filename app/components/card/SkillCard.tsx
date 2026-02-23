@@ -61,7 +61,7 @@ export default function SkillCard() {
                 <motion.div
                     key={nameCategory}
                     variants={categoryVariants}
-                    className="flex flex-col flex-1 min-w-[280px] max-w-full lg:max-w-md bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 shadow-xl"
+                    className="flex flex-col w-full max-w-[350px] sm:max-w-[400px] h-fit bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 shadow-xl"
                 >
                     <div className="mb-6">
                         <h3 className="text-xl font-semibold tracking-wide text-transparent bg-clip-text gradient-1">{nameCategory}</h3>
@@ -79,7 +79,7 @@ export default function SkillCard() {
                                         <img
                                             src={skill.urlImg}
                                             alt={skill.name}
-                                            className="max-w-full max-h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                                            className="max-w-full max-h-full object-contain filter lg:grayscale grayscale-0 lg:group-hover:grayscale-0 transition-all duration-300"
                                         />
                                     </div>
 
