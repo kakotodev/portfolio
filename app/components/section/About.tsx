@@ -117,7 +117,7 @@ export default function About() {
                                             Pendant mon temps libre, je pratique la musculation et je joue assidûment à des <span className="font-medium text-white">Jeux de Rythmes</span> ! Mais ce qui me fait le plus vibrer, c&apos;est de me plonger dans la documentation technique et de débugger mon code.
                                         </motion.p>
                                         <motion.p variants={childVariants}>
-                                            Mon objectif final est d&apos;apprendre chaque jour pour devenir un meilleur développeur. Surtout, n&apos;hésitez pas à me <span className="font-medium text-white gradient-1">contacter</span> !
+                                            Mon objectif final est d&apos;apprendre chaque jour pour devenir un meilleur développeur. N&apos;hésitez pas à me <span className="font-medium text-white gradient-1">contacter</span> !
                                         </motion.p>
                                     </div>
                                 </div>
