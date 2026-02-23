@@ -29,18 +29,21 @@ export default function ProjectCard({ listProjects }: { listProjects: Project })
                 </h3>
 
                 {/* Tags de technologies */}
-                <div className="flex flex-wrap justify-center gap-2 mb-4">
-                    {listProjects.technologies.map((tech, index) => {
-                        const colorBadgeTech = techColors[tech] || 'bg-gray-500/20';
-                        return (
-                            <span
-                                key={index}
-                                className={`text-[12px] font-medium px-3 py-1 rounded-full border border-white/5 ${colorBadgeTech} text-white/90 shadow-sm`}
-                            >
-                                {tech}
-                            </span>
-                        )
-                    })}
+                <div className="flex flex-col mb-4">
+                    <span className="text-[10px] text-gray-500 uppercase tracking-widest font-semibold mb-2">Stack Technique</span>
+                    <div className="flex flex-wrap justify-center gap-2">
+                        {listProjects.technologies.map((tech, index) => {
+                            const colorBadgeTech = techColors[tech] || 'bg-gray-500/20';
+                            return (
+                                <span
+                                    key={index}
+                                    className={`text-[12px] font-medium px-3 py-1 rounded-full border border-white/5 ${colorBadgeTech} text-white/90 shadow-sm`}
+                                >
+                                    {tech}
+                                </span>
+                            )
+                        })}
+                    </div>
                 </div>
 
                 {/* Description */}
