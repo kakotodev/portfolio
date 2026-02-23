@@ -76,7 +76,7 @@ export default function Contact() {
 
                         <motion.div variants={childVariants} className="flex flex-col md:flex-row gap-6 w-full">
                             <div className="flex flex-col gap-1 w-full">
-                                <Label htmlFor="name">Nom complet</Label>
+                                <Label htmlFor="name">Nom</Label>
                                 <Input
                                     id="name"
                                     name="user_name"

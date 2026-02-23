@@ -41,7 +41,7 @@ export default function MyProjects() {
                     Mes <span className="gradient-1 pb-2">Réalisations</span>
                 </h1>
                 <p className="text-gray-400 max-w-2xl mx-auto text-sm lg:text-base">
-                    Découvrez une sélection de mes projets récents, illustrant mes compétences en développement full-stack.
+                    Découvrez mes récents projets, illustrant mes compétences en développement full-stack.
                 </p>
             </motion.div>
 

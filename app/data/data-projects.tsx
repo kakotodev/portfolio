@@ -41,7 +41,7 @@ export const listProjects: Project[] = [
     {
         id: 3,
         title: "BuyYourPC - E-Commerce",
-        description: "Site web de vente de composants informatiques. Fonctionalités de comptes admin et utilisateur",
+        description: "Site web de vente de composants informatiques. Fonctionalités de comptes administrateur et utilisateur",
         technologies: ["PHP", "Twig"],
         link: "https://github.com/kakotodev/E-Commerce-PHP",
         urlImg: "/BuyYourPC-Ecommerce.svg"

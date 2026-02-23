@@ -73,9 +73,9 @@ export default function SkillCard() {
                                 <motion.div
                                     key={skill.id}
                                     variants={iconVariants}
-                                    className="relative flex justify-center group"
+                                    className="relative flex flex-col items-center gap-1.5 lg:gap-0 lg:block lg:justify-center group w-[60px] lg:w-auto"
                                 >
-                                    <div className="w-12 h-12 lg:w-14 lg:h-14 bg-white/10 rounded-xl flex items-center justify-center p-2 transition-transform duration-300 transform group-hover:-translate-y-2 group-hover:bg-white/20">
+                                    <div className="w-12 h-12 lg:w-14 lg:h-14 bg-white/10 rounded-xl flex items-center justify-center p-2 transition-transform duration-300 transform lg:group-hover:-translate-y-2 lg:group-hover:bg-white/20">
                                         <img
                                             src={skill.urlImg}
                                             alt={skill.name}
@@ -83,8 +83,13 @@ export default function SkillCard() {
                                         />
                                     </div>
 
-                                    {/* Tooltip au Hover */}
-                                    <span className="absolute -top-10 scale-0 transition-transform duration-200 ease-out origin-bottom rounded bg-gray-900 text-white text-xs font-medium py-1 px-2 group-hover:scale-100 shadow-xl whitespace-nowrap z-10 pointer-events-none">
+                                    {/* Texte de la compétence (Affiché en dur sur Mobile, Caché sur PC) */}
+                                    <span className="lg:hidden text-[11px] text-gray-400 font-medium tracking-wide text-center leading-tight">
+                                        {skill.name}
+                                    </span>
+
+                                    {/* Tooltip au Hover (Affiché sur PC, Caché sur Mobile) */}
+                                    <span className="hidden lg:block absolute -top-10 scale-0 transition-transform duration-200 ease-out origin-bottom rounded bg-gray-900 text-white text-xs font-medium py-1 px-2 group-hover:scale-100 shadow-xl whitespace-nowrap z-10 pointer-events-none">
                                         {skill.name}
                                         <span className="absolute top-full left-1/2 -translate-x-1/2 border-[5px] border-transparent border-t-gray-900"></span>
                                     </span>
